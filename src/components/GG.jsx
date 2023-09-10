@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HiTrophy } from "react-icons/hi2";
 import trophy from "../images/44124-removebg-preview.png";
 import calc from "../images/3d-calculator_10473465.png";
 import piggy from "../images/piggy-bank_1511168.png";
@@ -8,22 +7,34 @@ import bar from "../images/bar-chart_9952711.png";
 import benefit from "../images/benefits_9512431.png";
 import rank from "../images/silver-medal_3188893.png";
 import point from "../images/coin_9590150.png";
-import quiz from "../images/search_3277438.png"
-import study from "../images/education_3181724.png"
-import video from "../images/video_7214114.png"
-import walkthrough from "../images/team_9068396.png"
 
+import axios from "axios";
 import "../css/gg.css";
+import Popup from "./Popup";
 export default function GG() {
-  const [level, setlevel] = useState(0);
+  const [level, setlevel] = useState("");
   const [display, setdisplay] = useState(false);
+  const submit = async (e) => {
+    try {
+  
+      // Send the updated level to the server
+      await axios.post("http://localhost:8000", {
+         level , // Send the updated level
+      })
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  
+
+  console.log(level)
   return (
     <div style={{position:"relative"}}>
       <div className="top">
         <div className="trophy">
           <img src={trophy} alt="" style={{ height: "100px" }} />
         </div>
-        <div className="level">Current Level : {level} </div>
+        <div className="level" > <input type="text" onChange={(e)=>{setlevel(e.target.value)}} /> <button onClick={submit}>submit</button> </div>
         <div className="graph">
           <img src={bar} alt="" style={{ height: "70px" }} />
         </div>
@@ -123,28 +134,7 @@ export default function GG() {
         </div>
       </div>
       {display?(<>
-      <div className="popup">
-       <div className="tip" style={{marginTop:"20px"}}>Learn about Basics of Finance</div> 
-      <div className="edu">
-        
-        <div className="popcard" id="study">
-            <img style={{height:"120px" ,marginBottom:"20px"}} src={study} alt="" />
-            <div className="poptext">Learn and Study</div>
-        </div>
-        <div className="popcard" id="quiz">
-            <img style={{height:"120px",marginBottom:"20px"}} src={quiz} alt="" />
-            <div className="poptext">Take Quiz</div>
-        </div>
-        <div className="popcard" id="walk">
-            <img style={{height:"120px" ,marginBottom:"20px"}} src={walkthrough} alt="" />
-            <div className="poptext">Walkthrough</div>
-        </div>
-        <div className="popcard" id="video">
-            <img style={{height:"120px" ,marginBottom:"20px"}} src={video} alt="" />
-            <div className="poptext">Video Tutorials</div>
-        </div>
-        </div>
-      </div> </>):<></>
+      <Popup/> </>):<></>
 }
     </div>
   );
