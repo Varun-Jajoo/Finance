@@ -7,13 +7,19 @@ import bar from "../images/bar-chart_9952711.png";
 import benefit from "../images/benefits_9512431.png";
 import rank from "../images/silver-medal_3188893.png";
 import point from "../images/coin_9590150.png";
-
+import quiz from "../images/search_3277438.png"
+import study from "../images/education_3181724.png"
+import video from "../images/video_7214114.png"
+import walkthrough from "../images/team_9068396.png"
 import axios from "axios";
 import "../css/gg.css";
 import Popup from "./Popup";
+import { useNavigate } from "react-router-dom";
 export default function GG() {
   const [level, setlevel] = useState("");
   const [display, setdisplay] = useState(false);
+
+  const navigate = useNavigate()
   const submit = async (e) => {
     try {
   
@@ -49,10 +55,10 @@ export default function GG() {
             </span>
           </div>
         </div>
-        <div id="points" className="card">
+        <div id="points" className="card" onClick={()=>{navigate("/investments")}}>
           <img src={point} alt="" style={{ height: "90px" }} />
           <div className="topcard">
-            <span style={{ fontWeight: "bold", fontSize: "1.5em" }}>
+            <span style={{fontWeight: "bold", fontSize: "1.5em"}}>
               Points
             </span>
             6969

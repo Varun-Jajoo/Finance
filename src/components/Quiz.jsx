@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Quizdata from "./Quizdata";
 import "../css/quiz.css";
 
-export default function Quiz() {
+export default function Quiz({setquiz}) {
    const [ques, setQues] = useState(0);
    const [score, setScore] = useState(0);
    const [clickopt, setClickOpt] = useState(null);
@@ -42,6 +42,7 @@ export default function Quiz() {
             })}
          </div>
          <input type="button" onClick={nextQues} value="Next" />
+         
          <div>Score: {score}</div>
       </div>
    );
