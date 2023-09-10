@@ -9,10 +9,53 @@ mongoose.connect("mongodb://127.0.0.1:27017/Finance")
 const newSchema = new mongoose.Schema({
     level:{
         type:String,
+        required:false  
+    },
+    name:{
+        type:String,
         required:true
-        
+    },
+    email_id:{
+        type:String,
+        required:true
+    },
+    cult:{
+        type:String,
+        required:true
+    },
+    depend:{
+        type:Integer,
+        required:true
+    },
+    misc_exp:{
+        type:Double,
+        required:false
+    },
+    lst_mnth_sav:{
+        type:Double,
+        required:false
+    },
+    ann_inc:{
+        type:Double,
+        required:false
+    },
+    mnt_cst:{
+        type:Double,
+        required:false
+    },
+    rent_emi:{
+        type:Double,
+        required:false
+    },
+    area:{
+        type:String,
+        required:true
+    },
+    age:{
+        type:String,
+        required:true
     }
 })
-const collection = mongoose.model("userLearningData",newSchema)
+const collection = mongoose.model("user_Data",newSchema)
 
 module.exports=collection
