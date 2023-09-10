@@ -1,7 +1,7 @@
 .stock-container{
     width: 100%;
     height: 100vh;
-    background-color: black;
+    /* background-color: black; */
     color: rgb(149, 255, 110);
 }
 .charts{
