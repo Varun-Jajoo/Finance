@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Image,
-  ProgressBarAndroid,
   ImageBackground,
 } from "react-native";
 import React from "react";
@@ -13,7 +12,7 @@ import * as Progress from "react-native-progress";
 
 const Home = () => {
   return (
-    <ScrollView style={{ display: "flex",backgroundColor:"#1b1b1b",position:"relative" }}>
+    <ScrollView style={{ display: "flex",backgroundColor:"#1b1b1b",position:"relative", }}>
       <Image source={require("../assets/Savings-cuate.png")} style={{position:"absolute",height:300,width:400,top:0,left:0,backgroundColor:"#2b6747"}}/>
       <Pressable style={styles.savetop}>
         <Image
@@ -26,20 +25,22 @@ const Home = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
+
           }}
         >
           <Text
             style={{
               color: "#1b1b1b",
-              fontWeight: "900",
+              fontWeight: "700",
               fontSize: 20,
               marginRight: 30,
               textAlign: "left",
+              // fontFamily:"Poppins",
             }}
           >
             Add a Saving Goal
           </Text>
-          <Text style={{ textAlign: "center" ,color:"#1b1b1b"}}>We will keep a report! </Text>
+          <Text style={{ textAlign: "center" ,color:"#1b1b1b",}}>We will keep a report! </Text>
           {/* <ProgressBarAndroid
             styleAttr="Horizontal"
             indeterminate={false}
@@ -71,10 +72,11 @@ const Home = () => {
               <Text
                 style={{
                   color: "black",
-                  fontWeight: "900",
+                  fontWeight: "700",
                   fontSize: 20,
                   marginRight: 30,
                   textAlign: "left",
+                  // fontFamily:"Poppins"
                 }}
               >
                 Buying a Phone
@@ -143,4 +145,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 10,
   },
+  text:{}
 });
