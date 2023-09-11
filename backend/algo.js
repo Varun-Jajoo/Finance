@@ -1,5 +1,5 @@
 const mongoose= require('mongoose');
-const db = require("\mongo.js");
+const db = require("./mongo");
 const userData = require('./mongo');
 const stockData = require('./mongo');
 const PredictorData = require('./mongo');
