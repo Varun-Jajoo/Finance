@@ -116,7 +116,7 @@
 
 .blue {
     background: rgb(104,157,233);
-background: radial-gradient(circle, rgba(104,157,233,1) 0%, rgba(67,65,210,1) 100%);
+background: radial-gradient(circle, rgba(104,157,233,1) 0%, #457fe5 100%);
 }
 
 .orange {
