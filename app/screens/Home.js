@@ -13,7 +13,8 @@ import * as Progress from "react-native-progress";
 const Home = () => {
   return (
     <ScrollView style={{ display: "flex",backgroundColor:"white",position:"relative", }}>
-      <Image source={require("../assets/Savings-cuate.png")} style={{position:"absolute",height:300,width:400,top:0,left:0,backgroundColor:"#2b6747"}}/>
+      <View style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <Image source={require("../assets/Savings-cuate.png")} style={{position:"absolute",height:"45%",width:"100%",top:0,left:0,backgroundColor:"#2b6747"}}/>
       <Pressable style={styles.savetop}>
         <Image
           source={require("../assets/tugrik_9328452.png")}
@@ -24,7 +25,7 @@ const Home = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "flex-start",
+            alignItems: "center",
 
           }}
         >
@@ -33,7 +34,7 @@ const Home = () => {
               color: "#1b1b1b",
               fontWeight: "700",
               fontSize: 20,
-              marginRight: 30,
+              
               textAlign: "left",
               // fontFamily:"Poppins",
             }}
@@ -112,6 +113,7 @@ const Home = () => {
         </View>
         </ImageBackground>
       </Pressable>
+      </View>
     </ScrollView>
   );
 };
@@ -120,22 +122,20 @@ export default Home;
 
 const styles = StyleSheet.create({
   savetop: {
-    height: 100,
-    width: 350,
+    height: "18%",
+    width: "90%",
     backgroundColor: "#98bc62",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    margin: 24,
-    
     borderRadius: 20,
     elevation: 20,
-    marginTop:250
+    marginTop:200
   },
   save1: {
-    height: 220,
-    width: 350,
+    height: 200,
+    width: "90%",
     backgroundColor: "#F1C93B",
     display: "flex",
     flexDirection: "row",

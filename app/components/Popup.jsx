@@ -59,17 +59,18 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     gap: 15,
+    width:"100%",
+  
     marginTop: 30,
   },
   popcard: {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 250,
-    width: 180,
+    height: 240,
     backgroundColor: '#fff',
     flex: 0,
-    flexBasis: '45%',
+    flexBasis: '40%',
     borderRadius: 20,
     margin:6,
 

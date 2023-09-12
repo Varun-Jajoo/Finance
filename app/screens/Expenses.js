@@ -54,7 +54,7 @@ export default Expenses
 const styles = StyleSheet.create({
   savetop: {
     height: 100,
-    width: 350,
+    width: "90%",
     backgroundColor: "#98bc62",
     display: "flex",
     flexDirection: "row",
