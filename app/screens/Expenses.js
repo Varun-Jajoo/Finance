@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,Pressable,Image, ScrollView } from 'react-native'
 import React from 'react'
-import CircularProgress from 'react-native-circular-progress-indicator';
+
 const Expenses = () => {
   return (
     <ScrollView style={{display: "flex",backgroundColor:"#1b1b1b",position:"relative"}}>
@@ -34,27 +34,18 @@ const Expenses = () => {
         </View>
       </Pressable>
       <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"#fea944",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"#9884fd",borderWidth:20,margin:22}}></View>
       </View>
       <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"dodgerblue",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"green",borderWidth:20,margin:22}}></View>
       </View>
       <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"pink",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"#f46dd2",borderWidth:20,margin:22}}></View>
+      <View style={{height:150,width:150,borderRadius:400,borderColor:"#a36914",borderWidth:20,margin:22}}></View>
       </View>
-      <CircularProgress
-  value={60}
-  radius={120}
-  duration={2000}
-  progressValueColor={'#ecf0f1'}
-  maxValue={200}
-  title={'KM/H'}
-  titleColor={'white'}
-  titleStyle={{fontWeight: 'bold'}}
-/>
+    
     </ScrollView>
   )
 }
