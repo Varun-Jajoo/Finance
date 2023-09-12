@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import Popup from "../components/Popup"
 const Community = () => {
   return (
     <View>
-      <Text>Community</Text>
+      <Popup/>
     </View>
   )
 }

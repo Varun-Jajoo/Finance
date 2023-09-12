@@ -140,7 +140,7 @@ const Education = () => {
           <Image source={require('../assets/piggy-bank_1511168.png')} style={{ height: 80, width: 80, margin: 8 }} />
           <View style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ color: 'black', fontWeight: '900', fontSize: 20, fontFamily: 'Poppins', fontWeight: 200 }}>Entreprenuship Guide</Text>
-            <Progress.Bar borderColor='transparent' unfilledColor='white' color='rgb(59,198,84)' progress={0.3} width={150} height={10} borderRadius={20} style={{ marginTop: 20 }} />
+            <Progress.Bar borderColor='transparent' unfilledColor='white' color='rgb(59,198,84)' progress={0.3} width={150} height={10} borderRadius={20} style={{ marginTop: 20,marginRight:30 }} />
           </View>
         </Pressable>
       </View>
