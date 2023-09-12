@@ -85,7 +85,7 @@ const Education = () => {
         >
           <Image source={require('../assets/3d-calculator_10473465.png')} style={{ height: 80, width: 80 }} />
           <View style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-           <Text style={{ color: "white", fontWeight: "900", fontSize: 20, marginLeft: 20 ,marginRight:20}}>Basics of Finance</Text>
+           <Text style={{ color: "white", fontWeight: "900", fontSize: 20, marginLeft: 20 ,marginRight:20,fontFamily:"Poppins",fontWeight:200}}>Basics of Finance</Text>
            <Progress.Bar borderColor='transparent' unfilledColor='white' color='rgb(59,198,84)' progress={0.3} width={150} height={10} borderRadius={20} style={{marginTop:20}}/>
           </View>
         </Pressable>
@@ -105,7 +105,7 @@ const Education = () => {
         >
           <Image source={require('../assets/notification_6206466.png')} style={{ height: 80, width: 80 }} />
           <View style={{ display: "flex", flexDirection: "column" ,justifyContent: "center", alignItems: "center"}}>
-            <Text style={{ color: "white", fontWeight: "900", fontSize: 20, marginRight: 30, textAlign: "left" }}>Scam Prevention</Text>
+            <Text style={{ color: "white", fontWeight: "900", fontSize: 20, marginRight: 30, textAlign: "left",fontFamily:"Poppins",fontWeight:100 }}>Scam Prevention</Text>
           
             <Progress.Bar borderColor='transparent' unfilledColor='white' color='rgb(59,198,84)' progress={0.3} width={150} height={10}  borderRadius={20} style={{marginTop:20}}/>
            </View>
@@ -127,7 +127,7 @@ const Education = () => {
         >
           <Image source={require('../assets/piggy-bank_1511168.png')} style={{ height: 80, width: 80, margin: 8 }} />
           <View style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-            <Text style={{ color: "white", fontWeight: "900", fontSize: 20 }}>Entreprenuship Guide</Text>
+            <Text style={{ color: "white", fontWeight: "900", fontSize: 20, fontFamily:"Poppins",fontWeight:200}}>Entreprenuship Guide</Text>
             <Progress.Bar borderColor='transparent' unfilledColor='white' color='rgb(59,198,84)' progress={0.3} width={150} height={10}  borderRadius={20} style={{marginTop:20}}/>
           </View>
         </Pressable>
