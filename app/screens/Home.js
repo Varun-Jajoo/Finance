@@ -12,7 +12,7 @@ import * as Progress from "react-native-progress";
 
 const Home = () => {
   return (
-    <ScrollView style={{ display: "flex",backgroundColor:"#1b1b1b",position:"relative", }}>
+    <ScrollView style={{ display: "flex",backgroundColor:"white",position:"relative", }}>
       <Image source={require("../assets/Savings-cuate.png")} style={{position:"absolute",height:300,width:400,top:0,left:0,backgroundColor:"#2b6747"}}/>
       <Pressable style={styles.savetop}>
         <Image
@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "baseline",
-    margin: 24,
+    alignItems: "center",
+    margin: 20,
     borderRadius: 20,
     elevation: 10,
   },

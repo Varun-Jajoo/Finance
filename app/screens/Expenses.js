@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View,Pressable,Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View,Pressable,Image, ScrollView,Platform } from 'react-native'
 import React from 'react'
-
+// import CircularProgress from 'react-native-circular-progress-indicator';
 const Expenses = () => {
   return (
-    <ScrollView style={{display: "flex",backgroundColor:"#1b1b1b",position:"relative"}}>
+    <ScrollView style={{display: "flex",backgroundColor:"white",position:"relative"}}>
      <Pressable style={styles.savetop}>
         <Image
           source={require("../assets/coin_9590150.png")}
-          style={{ height: 80, width: 80, marginRight: 20 }}
+          style={{ height: 60, width: 60, marginRight: 10 }}
         />
         <View
           style={{
@@ -23,29 +23,28 @@ const Expenses = () => {
               color: "#1b1b1b",
               fontWeight: "700",
               fontSize: 20,
-              marginRight: 30,
+              marginRight: 10,
               textAlign: "left",
               // fontFamily:"Poppins",
             }}
           >
-            Add a Saving Goal
+            View your Daily transaction
           </Text>
-          <Text style={{ textAlign: "center" ,color:"#1b1b1b",}}>We will keep a report! </Text>
+          <Text style={{ textAlign: "center" ,color:"#1b1b1b",marginTop:5}}>Your  daily  report</Text>
         </View>
       </Pressable>
-      <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"#fea944",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"#9884fd",borderWidth:20,margin:22}}></View>
-      </View>
-      <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"dodgerblue",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"green",borderWidth:20,margin:22}}></View>
-      </View>
-      <View style={{display:'flex',flexDirection:'row'}}> 
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"#f46dd2",borderWidth:20,margin:22}}></View>
-      <View style={{height:150,width:150,borderRadius:400,borderColor:"#a36914",borderWidth:20,margin:22}}></View>
+      <View style={{display:'flex',flexDirection:'row',alignItems:"center",justifyContent:'center',flexWrap:"wrap"}}> 
+      <View style={{height:170,width:170,borderRadius:400,borderColor:"#F1C93B",borderWidth:20,margin:10}}>
+       <View style={{display:'flex',justifyContent:'center',alignItems:"center",marginTop:40}}>
+        <Text style={{color:"black"}}>Clothes</Text>
+        <Text style={{color:"black"}}>₹2000</Text>
+        </View>
       </View>
     
+
+      </View>
+      
+   
     </ScrollView>
   )
 }
@@ -64,5 +63,14 @@ const styles = StyleSheet.create({
     margin: 24,
     
     borderRadius: 20,
-    elevation: 20,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 20,
+      },})
   },})
