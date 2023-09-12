@@ -22,7 +22,7 @@ export default function Quiz({ setquiz }) {
   };
 
   return (
-    <View style={styles.quizContainer}>
+    <ScrollView style={styles.quizContainer}>
       <View style={styles.ques}>
         <Text>
           {ques + 1}. {Quizdata[ques].question}
@@ -56,7 +56,7 @@ export default function Quiz({ setquiz }) {
       </TouchableOpacity>
 
       <View><Text>Score: {score}</Text></View>
-    </View>
+    </ScrollView>
   );
 }
 

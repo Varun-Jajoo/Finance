@@ -15,25 +15,25 @@ const Popup = () => {
       {!quiz ? (
         <View style={styles.edu}>
           <TouchableOpacity style={[styles.popcard, styles.study]}>
-            <Image style={styles.cardImage}  />
+            <Image style={styles.cardImage}  source={require('../assets/education_3181724.png')}/>
             <Text style={styles.poptext}>Learn and Study</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.popcard, styles.quiz]}
             onPress={() => setQuiz(true)}
           >
-            <Image style={styles.cardImage}  />
+            <Image style={styles.cardImage} source={require('../assets/search_3277438.png')} />
             <Text style={styles.poptext}>Take Quiz</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.popcard, styles.walk]}>
             <Image
               style={styles.cardImage}
-            //   source={require('./walkthrough.png')}
+              source={require('../assets/team_9068396.png')}
             />
             <Text style={styles.poptext}>Walkthrough</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.popcard, styles.video]}>
-            <Image style={styles.cardImage}  />
+            <Image style={styles.cardImage} source={require('../assets/video_7214114.png')}  />
             <Text style={styles.poptext}>Video Tutorials</Text>
           </TouchableOpacity>
         </View>
@@ -46,7 +46,7 @@ const Popup = () => {
 
 const styles = StyleSheet.create({
   popup: {
-    height: '100%',
+    height: '110%',
     width: '100%',
     backgroundColor: 'rgb(243, 228, 201)',
   },
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 240,
+    height: "50%",
     backgroundColor: '#fff',
     flex: 0,
     flexBasis: '40%',
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(19, 66, 22)',
   },
   cardImage: {
-    height: 120,
-    marginBottom: 20,
+    height: 60,
+    width:60,    marginBottom: 20,
   },
   poptext: {
     // Add styles for the popcard text
