@@ -11,6 +11,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./screens/LoginScreen";
 import PersonalQuestions from "./screens/PersonalQuestions";
 import ExpensesLanding from "./screens/ExpensesLanding";
+import DailyExpense from "./screens/DailyExpense";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -54,9 +55,26 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
-      <Stack.Screen name="Personal" component={PersonalQuestions} options={{headerShown:false}} />
-      <Stack.Screen name="Main" component={BottomTabs} options={{headerShown:false}} />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Personal"
+          component={PersonalQuestions}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Main"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Daily"
+          component={DailyExpense}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
