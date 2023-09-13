@@ -18,46 +18,55 @@ const PersonalFirst = () => {
       title: "Gifts",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Food",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Clothes",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Education",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Leisure",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Toiletries",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Savings",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Technology",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
     {
       title: "Transport",
       img: require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg"),
       selected: false,
+      spent: 0,
     },
   ]);
 
@@ -78,10 +87,15 @@ const PersonalFirst = () => {
     updatedCards[i].selected = !cards[i].selected;
     setCards(updatedCards);
 
-    const selected = updatedCards.filter((card) => card.selected);
+    const selectedCards = updatedCards.filter((card) => card.selected);
+    const updatedSpend = selectedCards.map((card) => ({
+      title: card.title,
+      spent: card.spent,
+    }));
+
     setUserData((prevData) => ({
       ...prevData,
-      spend: selected.map((card) => card.title),
+      spend: updatedSpend,
     }));
   };
 
@@ -111,9 +125,7 @@ const PersonalFirst = () => {
             onPress={() => handlePress(index)}
           >
             <Image source={card.img} style={{ height: 70, width: 70 }} />
-            <Text
-              style={{ fontFamily: "Poppins", fontSize: 13 }}
-            >
+            <Text style={{ fontFamily: "Poppins", fontSize: 13 }}>
               {card.title}
             </Text>
           </Pressable>

@@ -10,6 +10,7 @@ import Community from "./screens/Community";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./screens/LoginScreen";
 import PersonalQuestions from "./screens/PersonalQuestions";
+import ExpensesLanding from "./screens/ExpensesLanding";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -38,7 +39,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Expenses"
-          component={Expenses}
+          component={ExpensesLanding}
           options={{ tabBarLabel: "Expenses", headerShown: false }}
         />
         <Tab.Screen
