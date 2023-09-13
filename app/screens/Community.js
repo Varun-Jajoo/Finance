@@ -4,12 +4,13 @@ import Popup from "../components/Popup"
 import Videotut from '../components/Videotut'
 import ExpensesLanding from '../components/ExpensesLanding'
 import Utilize from '../components/Utilize'
+import FixedDeposit from './FixedDeposit'
 
 
 const Community = () => {
   return (
     <ScrollView>
-     <Utilize/>
+     <FixedDeposit/>
     </ScrollView>
   )
 }

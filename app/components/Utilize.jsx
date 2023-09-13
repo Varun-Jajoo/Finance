@@ -19,7 +19,8 @@ const Utilize = () => {
       });
    
   return (
-    <ScrollView>
+    <View style={{ display: "flex",height:800, justifyContent: "center",
+    alignItems: "center",gap:25}}>
       <Pressable
           style={{
             display: "flex",
@@ -33,10 +34,10 @@ const Utilize = () => {
             ...elevationStyle, // Apply elevationStyle here
           }}
         >
-          <Image
+          {/* <Image
             source={require("../assets/3d-calculator_10473465.png")}
             style={{ height: 80, width: 80 }}
-          />
+          /> */}
           <View
             style={{
               display: "flex",
@@ -47,8 +48,6 @@ const Utilize = () => {
           >
             <Text
               style={{
-                
-                
                 fontSize: 20,
                 marginLeft: 20,
                 marginRight: 20,
@@ -56,9 +55,9 @@ const Utilize = () => {
                 //fontWeight: 200,
               }}
             >
-              Basics of Finance
+              Mutual Funds
             </Text>
-            <Progress.Bar
+            {/* <Progress.Bar
               borderColor="transparent"
               unfilledColor="white"
               color="rgb(59,198,84)"
@@ -67,7 +66,7 @@ const Utilize = () => {
               height={10}
               borderRadius={20}
               style={{ marginTop: 20 }}
-            />
+            /> */}
           </View>
         </Pressable>
         <Pressable
@@ -83,10 +82,10 @@ const Utilize = () => {
             ...elevationStyle, // Apply elevationStyle here
           }}
         >
-          <Image
+          {/* <Image
             source={require("../assets/notification_6206466.png")}
             style={{ height: 80, width: 80 }}
-          />
+          /> */}
           <View
             style={{
               display: "flex",
@@ -106,9 +105,9 @@ const Utilize = () => {
                 //fontWeight: 100,
               }}
             >
-              Scam Prevention
+              Fixed Deposit
             </Text>
-            <Progress.Bar
+            {/* <Progress.Bar
               borderColor="transparent"
               unfilledColor="white"
               color="rgb(59,198,84)"
@@ -117,7 +116,7 @@ const Utilize = () => {
               height={10}
               borderRadius={20}
               style={{ marginTop: 20 }}
-            />
+            /> */}
           </View>
         </Pressable>
         <Pressable
@@ -133,10 +132,10 @@ const Utilize = () => {
             ...elevationStyle, 
           }}
         >
-          <Image
+          {/* <Image
             source={require("../assets/piggy-bank_1511168.png")}
             style={{ height: 80, width: 80, margin: 8 }}
-          />
+          /> */}
           <View
             style={{
               display: "flex",
@@ -154,21 +153,12 @@ const Utilize = () => {
                 //fontWeight: 200,
               }}
             >
-              Entreprenuship Guide
+              Real Estate
             </Text>
-            <Progress.Bar
-              borderColor="transparent"
-              unfilledColor="white"
-              color="rgb(59,198,84)"
-              progress={0.3}
-              width={150}
-              height={10}
-              borderRadius={20}
-              style={{ marginTop: 20, marginRight: 30 }}
-            />
+           
           </View>
         </Pressable>
-    </ScrollView>
+    </View>
   )
 }
 
