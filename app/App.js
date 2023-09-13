@@ -15,11 +15,17 @@ export default function App() {
     language: "English",
     dependents: "8",
     goals: [],
-    spend: [],
-    salary: "",
-    savings: "",
-    city:"",
-    form:true
+    spend: [
+      { spent: 0, title: "Gifts" },
+      { spent: 0, title: "Leisure" },
+      { spent: 0, title: "Technology" },
+      { spent: 0, title: "Transport" },
+    ],
+    salary: "7000",
+    savings: "600",
+    city: "Rural",
+    form: true,
+    leftToSpend: 0,
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),

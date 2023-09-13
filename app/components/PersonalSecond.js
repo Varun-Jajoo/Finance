@@ -24,23 +24,21 @@ const PersonalSecond = () => {
     { label: "Metropolitian", value: "Metropolitian" },
   ]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setUserData((prevUserData) => ({
       ...prevUserData,
-      salary:spent,
+      salary: spent,
     }));
     setUserData((prevUserData) => ({
       ...prevUserData,
       savings,
     }));
-  
+
     setUserData((prevUserData) => ({
       ...prevUserData,
-      city:value,
-    }))
-  
-  },[value])
-console.log(userData);
+      city: value,
+    }));
+  }, [value]);
   return (
     <View
       style={{
@@ -55,7 +53,7 @@ console.log(userData);
         source={require("../assets/money.jpg")}
         style={{ height: 100, width: 100 }}
       />
-      <Text style={{ fontSize: 25, textAlign: "center", }}>
+      <Text style={{ fontSize: 25, textAlign: "center" }}>
         How much do you make per month ?
       </Text>
       <TextInput
