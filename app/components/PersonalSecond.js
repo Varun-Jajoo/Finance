@@ -40,7 +40,7 @@ const PersonalSecond = () => {
     }))
   
   },[value])
-
+console.log(userData);
   return (
     <View
       style={{
