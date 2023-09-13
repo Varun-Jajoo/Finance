@@ -19,7 +19,7 @@ export default function App() {
     salary: "",
     savings: "",
     city:"",
-    form:true
+    form:false
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),
