@@ -55,7 +55,7 @@ const StackNavigator = () => {
       <Stack.Navigator>
       <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
       <Stack.Screen name="Personal" component={PersonalQuestions} options={{headerShown:false}} />
-      <Stack.Screen name="Main" component={BottomTabs} />
+      <Stack.Screen name="Main" component={BottomTabs} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
