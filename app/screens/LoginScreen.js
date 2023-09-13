@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
@@ -13,12 +13,21 @@ import {
 import OnboardingFirst from "../components/OnboardingFirst";
 import OnboardingSecond from "../components/OnboardingSecond";
 import OnboardingThree from "../components/OnboardingThree";
+import { UserContext } from "../App";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 
 const Dots = ({ activeDotIndex }) => {
   const dots = [1, 2, 3];
+  const {userData,setUserData} = useContext(UserContext);
+  const navigation = useNavigation()
+
+    useEffect(()=>{
+        if(userData.form){
+            navigation.navigate('Main')
+        }
+    })
 
   return (
     <View style={styles.dotsContainer}>
