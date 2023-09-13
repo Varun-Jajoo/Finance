@@ -7,12 +7,15 @@ import {
   Image,
   Platform,
 } from "react-native";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 import * as Progress from "react-native-progress";
 import { UserContext } from "../App";
 
 const ExpensesLanding = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const navigation = useNavigation();
+
   return (
     <View>
       <Pressable
@@ -70,7 +73,11 @@ const ExpensesLanding = () => {
               alignItems: "center",
             }}
           >
-            <Text>{userData.leftToSpend}</Text>
+            <Text>
+              {userData.leftToSpend === 0
+                ? userData.salary - userData.savings
+                : userData.leftToSpend}
+            </Text>
             <Text style={{ marginLeft: 160 }}>
               {userData.salary - userData.savings}
             </Text>
@@ -80,8 +87,11 @@ const ExpensesLanding = () => {
             borderColor="transparent"
             animationType="spring"
             unfilledColor="white"
-            color="rgb(59,198,84)"
-            progress={1}
+            color="red"
+            progress={
+              (userData.salary - userData.savings - userData.leftToSpend) /
+              userData.salary
+            }
             width={255}
             height={13}
             borderRadius={20}
@@ -90,7 +100,10 @@ const ExpensesLanding = () => {
           />
         </Pressable>
         <Pressable></Pressable>
-        <Pressable style={styles.savetop}>
+        <Pressable
+          style={styles.savetop}
+          onPress={() => navigation.navigate("Daily")}
+        >
           <Image
             source={require("../assets/coin_9590150.png")}
             style={{ height: 60, width: 60, marginRight: 10 }}
