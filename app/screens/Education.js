@@ -109,7 +109,7 @@ const Education = () => {
       >
         <Text
           style={{
-            fontWeight: "bold",
+            //fontWeight: "bold",
             color: "black",
             fontSize: 20,
             paddingTop: 18,
@@ -119,7 +119,7 @@ const Education = () => {
         </Text>
         <Text
           style={{
-            fontWeight: "600",
+            //fontWeight: 600,
             fontSize: 15,
             textDecorationLine: "underline",
             color: "grey",
@@ -168,12 +168,12 @@ const Education = () => {
             <Text
               style={{
                 
-                fontWeight: "900",
+                
                 fontSize: 20,
                 marginLeft: 20,
                 marginRight: 20,
                 fontFamily: "Poppins",
-                fontWeight: 200,
+                //fontWeight: 200,
               }}
             >
               Basics of Finance
@@ -218,12 +218,12 @@ const Education = () => {
             <Text
               style={{
                 color: "black",
-                fontWeight: "900",
+                
                 fontSize: 20,
                 marginLeft: 16,
                 textAlign: "left",
                 fontFamily: "Poppins",
-                fontWeight: 100,
+                //fontWeight: 100,
               }}
             >
               Scam Prevention
@@ -268,10 +268,10 @@ const Education = () => {
             <Text
               style={{
                 color: "black",
-                fontWeight: "900",
+                
                 fontSize: 20,
                 fontFamily: "Poppins",
-                fontWeight: 200,
+                //fontWeight: 200,
               }}
             >
               Entreprenuship Guide

@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   number: {
     position: 'absolute',
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color:"white",
     fontSize: 14,
     top: 90,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   
   validThru: {
     position: 'absolute',
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     top: 120,
     left:42,
     color:"white",
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   date: {
     position: 'absolute',
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     fontSize: 11,
     color:"white",
     top: 136,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   name: {
     position: 'absolute',
     color:"white",
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     fontSize: 12,
     top: 171,
     left: 45,
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   
   code: {
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     fontSize:16,
     textAlign: 'center',
     margin: 2,

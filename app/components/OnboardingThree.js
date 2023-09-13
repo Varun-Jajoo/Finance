@@ -49,7 +49,7 @@ const OnboardingThree = () => {
         <Text
           style={{
             textAlign: "center",
-            fontWeight: "800",
+            
             fontSize: 18,
             marginBottom: 20,
           }}
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontWeight: "600",
+    //fontWeight: 600,
     fontSize: 18,
     marginBottom: 30,
   },

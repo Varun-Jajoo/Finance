@@ -77,7 +77,7 @@ useEffect(()=>{
           }}
           placeholderStyle={{
             color: "lightgrey",
-            fontWeight: 600,
+            //fontWeight: 600,
           }}
           dropDownDirection="BOTTOM"
           dropDownContainerStyle={{

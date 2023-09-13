@@ -46,7 +46,7 @@ const PersonalQuestions = () => {
   return (
     <SafeAreaView style={{ paddingTop: androidPadding,backgroundColor:"white",height:Dimensions.get("window").height }}>
     <Text
-          style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Poppins",textAlign:"center",paddingTop:20 }}
+          style={{ fontSize: 20, fontFamily: "Poppins",textAlign:"center",paddingTop:20 }}
         >
           Tell us about yourself
         </Text>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 25,
-    fontWeight: 700,
+    //fontWeight: 700,
     fontFamily: "Poppins",
   },
   dotsContainer: {

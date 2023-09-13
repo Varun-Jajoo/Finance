@@ -49,7 +49,7 @@ const OnboardingSecond = () => {
             }}
             placeholderStyle={{
               color: "lightgrey",
-              fontWeight: 600,
+              //fontWeight: 600,
             }}
             dropDownDirection="BOTTOM"
             dropDownContainerStyle={{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontWeight: "600",
+    //fontWeight: 600,
     fontSize: 18,
     marginBottom: 30,
   },

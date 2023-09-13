@@ -21,7 +21,7 @@ const Expenses = () => {
           <Text
             style={{
               color: "#1b1b1b",
-              fontWeight: "700",
+              //fontWeight: "700",
               fontSize: 20,
               marginRight: 10,
               textAlign: "left",

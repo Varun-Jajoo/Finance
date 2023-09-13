@@ -55,7 +55,7 @@ console.log(userData);
         source={require("../assets/money.jpg")}
         style={{ height: 100, width: 100 }}
       />
-      <Text style={{ fontSize: 25, textAlign: "center", fontWeight: 600 }}>
+      <Text style={{ fontSize: 25, textAlign: "center", }}>
         How much do you make per month ?
       </Text>
       <TextInput
@@ -64,7 +64,7 @@ console.log(userData);
         style={styles.input}
         placeholder=" ₹ Enter Amount "
       />
-      <Text style={{ fontSize: 25, textAlign: "center", fontWeight: 600 }}>
+      <Text style={{ fontSize: 25, textAlign: "center" }}>
         How much do you save per month ?
       </Text>
       <TextInput
@@ -73,7 +73,7 @@ console.log(userData);
         style={styles.input}
         placeholder=" ₹ Enter Amount "
       />
-      <Text style={{ fontSize: 25, textAlign: "center", fontWeight: 600 }}>
+      <Text style={{ fontSize: 25, textAlign: "center" }}>
         Which Type of city you live ?
       </Text>
       <View style={styles.dropDownContainer}>
@@ -93,7 +93,7 @@ console.log(userData);
           }}
           placeholderStyle={{
             color: "lightgrey",
-            fontWeight: 600,
+            //fontWeight: 600,
           }}
           dropDownDirection="BOTTOM"
           dropDownContainerStyle={{

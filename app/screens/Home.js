@@ -32,7 +32,7 @@ const Home = () => {
           <Text
             style={{
               color: "#1b1b1b",
-              fontWeight: "700",
+              //fontWeight: "700",
               fontSize: 20,
               
               textAlign: "left",
@@ -73,7 +73,7 @@ const Home = () => {
               <Text
                 style={{
                   color: "black",
-                  fontWeight: "700",
+                  //fontWeight: "700",
                   fontSize: 20,
                   marginRight: 30,
                   textAlign: "left",
@@ -100,7 +100,7 @@ const Home = () => {
           <Text
             style={{
               color: "black",
-              fontWeight: "900",
+              //fontWeight: "900",
               fontSize: 16,
               marginRight: 30,
               textAlign: "left",

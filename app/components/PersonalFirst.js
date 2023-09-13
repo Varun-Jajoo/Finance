@@ -112,7 +112,7 @@ const PersonalFirst = () => {
           >
             <Image source={card.img} style={{ height: 70, width: 70 }} />
             <Text
-              style={{ fontWeight: 600, fontFamily: "Poppins", fontSize: 13 }}
+              style={{ fontFamily: "Poppins", fontSize: 13 }}
             >
               {card.title}
             </Text>

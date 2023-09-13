@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 25,
-    fontWeight: 700,
+    //fontWeight: 700,
     fontFamily: "Poppins",
   },
   dotsContainer: {
