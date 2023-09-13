@@ -8,11 +8,11 @@ export const UserContext = createContext();
 
 export default function App() {
   const [userData, setUserData] = useState({
-    name: "",
-    age: 0,
-    phoneNumber: "",
-    language: "",
-    dependents: "",
+    name: "Shreyans",
+    age: 18,
+    phoneNumber: "983838283",
+    language: "English",
+    dependents: "8",
     goals: [],
     spend: [],
     salary: "",

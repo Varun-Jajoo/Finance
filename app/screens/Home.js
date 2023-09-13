@@ -56,8 +56,8 @@ const Home = () => {
             progress={item.progress}
             width={255}
             height={18}
-            borderRadius={20}
-            style={{ marginTop: 20, elevation: 10 }}
+            borderRadius={10}
+            style={{ marginTop: 20, elevation: 10,borderWidth:-1 }}
           />
           <Text style={{ color: 'black', fontSize: 16, marginRight: 30, textAlign: 'left', marginTop: 20 }}>
             Balance
