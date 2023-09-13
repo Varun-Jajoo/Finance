@@ -3,16 +3,17 @@ import React, { createContext, useContext, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import StackNavigator from "./StackNavigator";
 import { useFonts } from "expo-font";
+import { ModalPortal } from "react-native-modals";
 
 export const UserContext = createContext();
 
 export default function App() {
   const [userData, setUserData] = useState({
-    name: "",
-    age: 0,
-    phoneNumber: "",
-    language: "",
-    dependents: "",
+    name: "Shreyans",
+    age: 18,
+    phoneNumber: "983838283",
+    language: "English",
+    dependents: "8",
     goals: [],
     spend: [],
     salary: "",
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
       <StackNavigator />
+      <ModalPortal />
     </UserContext.Provider>
   );
 }

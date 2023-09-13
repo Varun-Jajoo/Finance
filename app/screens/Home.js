@@ -8,16 +8,26 @@ import {
   Image,
   ImageBackground,
   TextInput,
-  FlatList, // Import FlatList
+  FlatList,
+  Dimensions
 } from 'react-native';
 import * as Progress from 'react-native-progress';
+import { BottomModal } from "react-native-modals";
+import { ModalFooter } from "react-native-modals";
+import { ModalButton } from "react-native-modals";
+import { ModalTitle } from "react-native-modals";
+import { SlideAnimation } from "react-native-modals";
+import { ModalContent } from "react-native-modals";
 
 const Home = () => {
   const [goals, setGoals] = useState([]);
   const [newGoalName, setNewGoalName] = useState('');
   const [newGoalAmount, setNewGoalAmount] = useState('');
   const [newTotalGoalAmount,setNewTotalGoalAmount]=useState('')
+  const [modalVisible, setModalVisible] = useState(false);
+  const screenHeight = Dimensions.get("window").height;
   const addNewGoal = () => {
+    setModalVisible(!modalVisible)
     if (newGoalName && newGoalAmount && newTotalGoalAmount) {
       const newGoal = {
         name: newGoalName,
@@ -56,8 +66,8 @@ const Home = () => {
             progress={item.progress}
             width={255}
             height={18}
-            borderRadius={20}
-            style={{ marginTop: 20, elevation: 10 }}
+            borderRadius={10}
+            style={{ marginTop: 20, elevation: 10,borderWidth:-1 }}
           />
           <Text style={{ color: 'black', fontSize: 16, marginRight: 30, textAlign: 'left', marginTop: 20 }}>
             Balance
@@ -68,21 +78,18 @@ const Home = () => {
     </Pressable>
   );
 
-  return (
-    <ScrollView style={{ display: 'flex', backgroundColor: 'white', position: 'relative' }}>
+  return (<>
+    <View style={{ display: 'flex', backgroundColor: 'white', height:screenHeight }}>
       <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Image
           source={require('../assets/Savings-cuate.png')}
           style={{
-            position: 'absolute',
-            height: '45%',
+            height: 350,
             width: '100%',
-            top: 0,
-            left: 0,
             backgroundColor: '#2b6747',
           }}
         />
-        <Pressable style={styles.savetop} onPress={addNewGoal}>
+        <Pressable style={styles.savetop} onPress={()=>setModalVisible(!modalVisible)}>
           <Image
             source={require('../assets/tugrik_9328452.png')}
             style={{ height: 80, width: 80, marginRight: 20 }}
@@ -107,8 +114,52 @@ const Home = () => {
             <Text style={{ textAlign: 'center', color: '#1b1b1b' }}>We will keep a report!</Text>
           </View>
         </Pressable>
-
-        {/* Input fields for new goal */}
+        <FlatList
+        style={{marginTop:80}}
+          data={goals}
+          renderItem={renderGoalCard}
+          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={{ paddingBottom: 180 }}
+          showsVerticalScrollIndicator={false} 
+        />
+      </View>
+    </View>
+    <BottomModal
+        swipeThreshold={200}
+        onBackDropPress={() => setModalVisible(!modalVisible)}
+        swipeDirection={["up", "down"]}
+        footer={
+          <ModalFooter>
+            <ModalButton
+              text="Add"
+              textStyle={{ color: "white" }}
+              style={{
+                marginBottom: 20,
+                marginHorizontal: 40,
+                backgroundColor: "#0079FF",
+                borderRadius: 100,
+              }}
+              onPress={addNewGoal}
+            />
+          </ModalFooter>
+        }
+        modalTitle={
+          <ModalTitle
+            title="Add Deatils for Saving Goal"
+            textStyle={{ fontSize: 20, paddingBottom: 1 }}
+            hasTitleBar={false}
+          />
+        }
+        modalAnimation={
+          new SlideAnimation({
+            slideFrom: "bottom",
+          })
+        }
+        onHardwareBackPress={() => setModalVisible(!modalVisible)}
+        visible={modalVisible}
+        onTouchOutside={() => setModalVisible(!modalVisible)}
+      >
+        <ModalContent style={{ width: "100%", height: 200 }}>
         <TextInput
           placeholder="Goal Name"
           value={newGoalName}
@@ -116,29 +167,22 @@ const Home = () => {
           style={styles.textInput}
         />
         <TextInput
-          placeholder="Amount to Save"
+          placeholder="Amount to be deducted per month"
           value={newGoalAmount}
           onChangeText={(text) => setNewGoalAmount(text)}
           keyboardType="numeric"
           style={styles.textInput}
         />
         <TextInput
-          placeholder="Amount to Achieve"
+          placeholder="Amount required to acheive the goal"
           value={newTotalGoalAmount}
           onChangeText={(text) => setNewTotalGoalAmount(text)}
           keyboardType="numeric"
           style={styles.textInput}
         />
-
-       
-        <FlatList
-          data={goals}
-          renderItem={renderGoalCard}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={{ paddingBottom: 50 }}
-        />
-      </View>
-    </ScrollView>
+        </ModalContent>
+      </BottomModal>
+  </>
   );
 };
 
@@ -153,19 +197,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     elevation: 20,
-    marginTop: "10%",
+    position:"absolute",
+    top:300
   },
   save1: {
     height: 200,
-    width: '90%',
+    width:325,
     backgroundColor: '#F1C93B',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 20,
+    marginHorizontal:10,
     borderRadius: 20,
     elevation: 10,
+    marginBottom:10,
   },
   textInput: {
     height: 40,
