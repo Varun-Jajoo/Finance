@@ -8,6 +8,8 @@ import Education from "./screens/Education";
 import Expenses from "./screens/Expenses";
 import Community from "./screens/Community";
 import { NavigationContainer } from "@react-navigation/native";
+import LoginScreen from "./screens/LoginScreen";
+import PersonalQuestions from "./screens/PersonalQuestions";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -51,7 +53,9 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={BottomTabs} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
+      <Stack.Screen name="Personal" component={PersonalQuestions} options={{headerShown:false}} />
+      <Stack.Screen name="Main" component={BottomTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
