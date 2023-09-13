@@ -3,11 +3,13 @@ import React from 'react'
 import Popup from "../components/Popup"
 import Videotut from '../components/Videotut'
 import ExpensesLanding from '../components/ExpensesLanding'
+import Utilize from '../components/Utilize'
+
 
 const Community = () => {
   return (
     <ScrollView>
-     <ExpensesLanding/>
+     <Utilize/>
     </ScrollView>
   )
 }
