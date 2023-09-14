@@ -15,6 +15,7 @@ import DailyExpense from "./screens/DailyExpense";
 import Popup from "./components/Popup";
 import Quiz from "./components/Quiz";
 import LevelCompletion from "./screens/LevelCompletion";
+import LearnAndStudy from "./screens/LearnAndStudy";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -86,6 +87,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Complete"
           component={LevelCompletion}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Learn"
+          component={LearnAndStudy}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -18,7 +18,6 @@ const LevelCompletion = () => {
   const navigation = useNavigation();
   const handleNextLevel = () => {
     const check = userData.progress.bof;
-    // if (check.lns && check.quiz && check.wt && check.video) {
     if (check.quiz) {
       setUserData((prev) => ({
         ...prev,

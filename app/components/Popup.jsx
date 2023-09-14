@@ -65,7 +65,10 @@ const Popup = () => {
       </Pressable>
 
       <View style={styles.edu}>
-        <TouchableOpacity style={[styles.popcard, styles.study]}>
+        <TouchableOpacity
+          style={[styles.popcard, styles.study]}
+          onPress={() => navigation.navigate("Learn")}
+        >
           <Image
             style={styles.cardImage}
             source={require("../assets/education_3181724.png")}
