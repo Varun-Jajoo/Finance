@@ -23,7 +23,7 @@ export default function Quiz({ setquiz }) {
   const [quizData, setQuizData] = useState(quizData1);
 
   useEffect(() => {
-    if (userData.level === 1) {
+    if (userData.level === "1") {
       setQuizData(quizData1);
     } else if (userData.level === 2) {
       setQuizData(quizData2);
