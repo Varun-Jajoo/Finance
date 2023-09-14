@@ -96,6 +96,10 @@ const PersonalQuestions = () => {
   const handleContinuePress = async () => {
     setActiveDotIndex(activeDotIndex + 1);
     if (activeDotIndex + 1 === 2) {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Main" }],
+      });
       try {
         const response = await axios.post(
           "https://f156-103-173-245-53.ngrok-free.app", // Update with your server URL
@@ -116,10 +120,7 @@ const PersonalQuestions = () => {
         
       } catch (error) {
         console.error("Error:", error);
-      }navigation.reset({
-          index: 0,
-          routes: [{ name: "Main" }],
-        });
+      }
     }
   };
   
