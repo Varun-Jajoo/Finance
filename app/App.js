@@ -22,10 +22,13 @@ export default function App() {
       { spent: 0, title: "Transport" },
     ],
     salary: "7000",
-    savings:"600",
+    savings: "600",
     city: "Rural",
     form: false,
     leftToSpend: 0,
+    points: "0",
+    level: "0",
+    progress: [],
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),

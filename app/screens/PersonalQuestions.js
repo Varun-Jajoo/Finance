@@ -104,27 +104,24 @@ const PersonalQuestions = () => {
         const response = await axios.post(
           "https://f156-103-173-245-53.ngrok-free.app", // Update with your server URL
           {
-            level: "0",
+            level: userData.level,
             name: userData.name,
             age: userData.age,
-            phn_num:userData.phoneNumber,
+            phn_num: userData.phoneNumber,
             depend: userData.dependents,
             area: userData.city,
-            lst_mnth_sav:userData.savings,
-            ann_inc: userData.salary ,
+            lst_mnth_sav: userData.savings,
+            ann_inc: userData.salary,
+            points: userData.points,
+            progress: userData.progress,
           }
         );
-  
         console.log("Response:", response.data);
-  
-        
       } catch (error) {
         console.error("Error:", error);
       }
     }
   };
-  
-  
 
   return (
     <SafeAreaView
