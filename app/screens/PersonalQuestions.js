@@ -98,30 +98,31 @@ const PersonalQuestions = () => {
     if (activeDotIndex + 1 === 2) {
       try {
         const response = await axios.post(
-          "http://localhost:8000", // Update with your server URL
+          "https://f156-103-173-245-53.ngrok-free.app", // Update with your server URL
           {
             level: userData.level,
             name: userData.name,
             age: userData.age,
-            phn_num: parseInt(userData.phoneNumber),
-            depend: parseInt(userData.dependents),
+            phn_num:userData.phoneNumber,
+            depend: userData.dependents,
             area: userData.city,
-            lst_mnth_sav: parseInt(userData.savings),
-            ann_inc: parseInt(userData.salary) * 12,
+            lst_mnth_sav:userData.savings,
+            ann_inc: userData.salary ,
           }
         );
   
         console.log("Response:", response.data);
   
-        navigation.reset({
-          index: 0,
-          routes: [{ name: "Main" }],
-        });
+        
       } catch (error) {
         console.error("Error:", error);
-      }
+      }navigation.reset({
+        index: 0,
+        routes: [{ name: "Main" }],
+      });
     }
   };
+  
   
 
   return (

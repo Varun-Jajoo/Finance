@@ -10,7 +10,7 @@ export const UserContext = createContext();
 export default function App() {
   const [userData, setUserData] = useState({
     name: "Shreyans",
-    age: 18,
+    age: "18",
     phoneNumber: "983838283",
     language: "English",
     dependents: "8",
@@ -22,9 +22,9 @@ export default function App() {
       { spent: 0, title: "Transport" },
     ],
     salary: "7000",
-    savings: "600",
+    savings:"600",
     city: "Rural",
-    form: true,
+    form: false,
     leftToSpend: 0,
   });
   const [loaded] = useFonts({
