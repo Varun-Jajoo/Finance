@@ -233,6 +233,14 @@ const newSchema=new mongoose.Schema({
     ann_inc:{
         type:String,
         required:true
+    },
+    points:{
+        type:String,
+        required:true
+    },
+    progress:{
+        type:String,
+        required:true
     }
 })
 const collection =mongoose.model("kashik",newSchema)
