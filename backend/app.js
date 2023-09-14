@@ -8,7 +8,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/", cors(), (req, res)=>{})
+app.get("/", cors(), (req, res)=>{
+  collection.find({}).select('name age').exec((err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(data);
+    }
+  });
+})
 app.post("/",async(req,res)=>{
   const {level,name,age,phn_num,depend,area,lst_mnth_sav,ann_inc}=req.body
   const data={
