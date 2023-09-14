@@ -6,12 +6,13 @@ import ExpensesLanding from './ExpensesLanding'
 import Utilize from '../components/Utilize'
 import FixedDeposit from './FixedDeposit'
 import PersonalDataForm from '../components/PersonalDataForm'
+import LearnAndStudy from './LearnAndStudy'
 
 
 const Community = () => {
   return (
     <ScrollView>
-   <PersonalDataForm/>
+   <LearnAndStudy/>
     </ScrollView>
   )
 }

@@ -49,7 +49,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Community"
-          component={Popup}
+          component={Community}
           options={{ tabBarLabel: "Community", headerShown: false }}
         />
       </Tab.Navigator>

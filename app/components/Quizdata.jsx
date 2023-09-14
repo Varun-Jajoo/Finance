@@ -1,4 +1,4 @@
-const quizData = [
+const quizData1 = [
   {
     question: "What is the definition of 'Compound Interest'?",
     options: [
@@ -45,4 +45,5 @@ const quizData = [
   },
 ];
 
-export default quizData;
+
+export default quizData1;
