@@ -26,7 +26,7 @@ const DailyExpense = () => {
   };
   const handleContinuePress = () => {
     const updatedSpend = inputValues.map((amount) => ({
-      spent: parseInt(amount) || 0,
+      spent:  (amount) || 0,
     }));
 
     const totalSpent = updatedSpend.reduce(

@@ -203,7 +203,7 @@ console.log("connected")
     
 const newSchema=new mongoose.Schema({
     level:{
-        type:String,
+        type:Number,
         required:true
     },
     name:{
@@ -215,11 +215,11 @@ const newSchema=new mongoose.Schema({
         required:true
     },
     phn_num:{
-        type:String,
+        type:Number,
         required:true
     },
     depend:{
-        type:String,
+        type:Number,
         required:true
     },
     area:{
@@ -227,19 +227,19 @@ const newSchema=new mongoose.Schema({
         required:true
     },
     lst_mnth_sav:{
-        type:String,
+        type:Number,
         required:true
     },
     ann_inc:{
-        type:String,
+        type:Number,
         required:true
     },
     points:{
-        type:String,
+        type:Number,
         required:true
     },
     progress:{
-        type:String,
+        type:Number,
         required:true
     }
 })
