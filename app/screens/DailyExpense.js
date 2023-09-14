@@ -82,7 +82,7 @@ const DailyExpense = () => {
               </Pressable>
               <TextInput
                 style={styles.input}
-                // value={inputValues[i]}
+                value={inputValues[i]}
                 onChangeText={(text) => handleChange(i, text)}
                 placeholder="Enter Amount"
                 keyboardType="numeric"

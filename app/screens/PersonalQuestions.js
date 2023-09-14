@@ -93,37 +93,31 @@ const PersonalQuestions = () => {
   //     }
   //   }
   // };
+
   const handleContinuePress = async () => {
     setActiveDotIndex(activeDotIndex + 1);
     if (activeDotIndex + 1 === 2) {
+      console.log(userData);
       try {
-        const response = await axios.post(
-          "https://f156-103-173-245-53.ngrok-free.app", // Update with your server URL
-          {
-            level: userData.level,
-            name: userData.name,
-            age: userData.age,
-            phn_num:userData.phoneNumber,
-            depend: userData.dependents,
-            area: userData.city,
-            lst_mnth_sav:userData.savings,
-            ann_inc: userData.salary ,
-          }
-        );
-  
+        axios
+          .post(" https://f156-103-173-245-53.ngrok-free.app", userData)
+          .then((response) => {
+            console.log("Data sent successfully:", response.data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
         console.log("Response:", response.data);
-  
-        
       } catch (error) {
         console.error("Error:", error);
-      }navigation.reset({
+      }
+      navigation.reset({
         index: 0,
         routes: [{ name: "Main" }],
       });
     }
   };
-  
-  
 
   return (
     <SafeAreaView
