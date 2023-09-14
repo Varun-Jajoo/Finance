@@ -125,12 +125,6 @@ const LevelCompletion = () => {
             Proceed to Level {parseInt(userData.level) + 1}
           </Text>
         </Pressable>
-        <Pressable
-          style={styles.continueButton1}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.continueButtonText}>Return To Home Screen</Text>
-        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -140,7 +134,7 @@ export default LevelCompletion;
 
 const styles = StyleSheet.create({
   continueButton: {
-    backgroundColor: "black",
+    backgroundColor: "#22668D",
     width: 350,
     height: 60,
     justifyContent: "center",
@@ -153,14 +147,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontFamily: "Poppins",
-  },
-  continueButton1: {
-    backgroundColor: "#22668D",
-    width: 350,
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    marginTop: 10,
   },
 });

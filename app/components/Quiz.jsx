@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 import { UserContext } from "../App";
-import Quizdata from "./Quizdata";
+import { quizData1, quizData2, quizData3, quizData4 } from "./Quizdata";
 import * as Progress from "react-native-progress";
 import { useNavigation } from "@react-navigation/native";
 
@@ -20,13 +20,27 @@ export default function Quiz({ setquiz }) {
   const [optionStyle, setOptionStyle] = useState({});
   const { userData, setUserData } = useContext(UserContext);
   const navigation = useNavigation();
+  const [quizData, setQuizData] = useState(quizData1);
 
+  useEffect(() => {
+    if (userData.level === 1) {
+      setQuizData(quizData1);
+    } else if (userData.level === 2) {
+      setQuizData(quizData2);
+    } else if (userData.level === 3) {
+      setQuizData(quizData3);
+    } else {
+      setQuizData(quizData4);
+    }
+  }, []);
   const nextQues = () => {
-    if (clickopt === Quizdata[ques].correctAnswer) {
+    let set = false;
+    if (clickopt === quizData[ques].correctAnswer) {
       setScore(score + 1);
+      set = true;
     }
 
-    if (ques < Quizdata.length - 1) {
+    if (ques < quizData.length - 1) {
       setQues(ques + 1);
       setClickOpt(null);
       setOptionStyle({});
@@ -43,13 +57,12 @@ export default function Quiz({ setquiz }) {
       }));
       const goBackWithDelay = () => {
         setTimeout(() => {
-          navigation.navigate("Complete", { score });
+          navigation.navigate("Complete", { score: set ? score + 1 : score });
         }, 500);
       };
       goBackWithDelay();
     }
   };
-  console.log(userData.level);
   return (
     <SafeAreaView style={styles.quizContainer}>
       <View style={{ gap: 10, alignItems: "center" }}>
@@ -61,7 +74,7 @@ export default function Quiz({ setquiz }) {
           borderColor="transparent"
           unfilledColor="white"
           color="rgb(59,198,84)"
-          progress={ques / Quizdata.length}
+          progress={ques / quizData.length}
           width={300}
           height={10}
           borderRadius={20}
@@ -80,7 +93,7 @@ export default function Quiz({ setquiz }) {
         }}
       >
         <Image
-          source={Quizdata[ques].img}
+          source={quizData[ques].img}
           style={{ width: 130, height: 130, marginTop: 20 }}
         />
         <View style={styles.ques}>
@@ -88,24 +101,22 @@ export default function Quiz({ setquiz }) {
             Question {ques + 1}
           </Text>
           <Text style={{ fontSize: 19, fontWeight: "600" }}>
-            {Quizdata[ques].question}
+            {quizData[ques].question}
           </Text>
         </View>
         <View style={styles.options}>
-          {Quizdata[ques].options.map((option, i) => {
+          {quizData[ques].options.map((option, i) => {
             return (
               <TouchableOpacity
                 key={i}
                 style={[styles.optionButton, optionStyle[i]]}
                 onPress={() => {
-                  setClickOpt(i + 1);
+                  setClickOpt(i);
                   setOptionStyle((prevStyle) => ({
                     ...prevStyle,
                     [i]: {
                       backgroundColor:
-                        i + 1 === Quizdata[ques].correctAnswer
-                          ? "green"
-                          : "red",
+                        i === quizData[ques].correctAnswer ? "green" : "red",
                     },
                   }));
                 }}
