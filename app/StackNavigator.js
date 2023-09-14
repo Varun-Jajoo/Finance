@@ -12,6 +12,9 @@ import LoginScreen from "./screens/LoginScreen";
 import PersonalQuestions from "./screens/PersonalQuestions";
 import ExpensesLanding from "./screens/ExpensesLanding";
 import DailyExpense from "./screens/DailyExpense";
+import Popup from "./components/Popup";
+import Quiz from "./components/Quiz";
+import LevelCompletion from "./screens/LevelCompletion";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -45,7 +48,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Community"
-          component={Community}
+          component={Popup}
           options={{ tabBarLabel: "Community", headerShown: false }}
         />
       </Tab.Navigator>
@@ -73,6 +76,16 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Daily"
           component={DailyExpense}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={Quiz}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Complete"
+          component={LevelCompletion}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

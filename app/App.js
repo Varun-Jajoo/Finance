@@ -24,11 +24,18 @@ export default function App() {
     salary: "7000",
     savings: "600",
     city: "Rural",
-    form: false,
+    form: true,
     leftToSpend: 0,
     points: "0",
-    level: "0",
-    progress: [],
+    level: "1",
+    progress: {
+      bof: {
+        lns: false,
+        quiz: false,
+        wt: false,
+        video: false,
+      },
+    },
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),

@@ -1,106 +1,161 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import Quiz from './Quiz';
-
-// Import your image assets (study, quiz1, walkthrough, video)
+import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  Pressable,
+} from "react-native";
+import Quiz from "./Quiz";
+import * as Progress from "react-native-progress";
 
 const Popup = () => {
-  const [quiz, setQuiz] = useState(false);
-
+  const navigation = useNavigation();
   return (
-    <View style={styles.popup}>
+    <SafeAreaView style={styles.popup}>
       <View style={styles.topcard}>
-        <Text onPress={()=>setQuiz(false)} style={styles.tip}>Learn about Basics of Finance</Text>
+        <Text style={styles.tip}>Learn about Basics of Finance</Text>
       </View>
-      {!quiz ? (
-        <View style={styles.edu}>
-          <TouchableOpacity style={[styles.popcard, styles.study]}>
-            <Image style={styles.cardImage}  source={require('../assets/education_3181724.png')}/>
-            <Text style={styles.poptext}>Learn and Study</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.popcard, styles.quiz]}
-            onPress={() => setQuiz(true)}
+      <Pressable
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          height: 150,
+          width: "90%",
+          backgroundColor: "#F1C93B",
+          borderRadius: 35,
+        }}
+      >
+        <Image
+          source={require("../assets/3d-calculator_10473465.png")}
+          style={{ height: 80, width: 80 }}
+        />
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontFamily: "Poppins",
+            }}
           >
-            <Image style={styles.cardImage} source={require('../assets/search_3277438.png')} />
-            <Text style={styles.poptext}>Take Quiz</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.popcard, styles.walk]}>
-            <Image
-              style={styles.cardImage}
-              source={require('../assets/team_9068396.png')}
-            />
-            <Text style={styles.poptext}>Walkthrough</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.popcard, styles.video]}>
-            <Image style={styles.cardImage} source={require('../assets/video_7214114.png')}  />
-            <Text style={styles.poptext}>Video Tutorials</Text>
-          </TouchableOpacity>
+            Basics of Finance
+          </Text>
+          <Progress.Bar
+            borderColor="transparent"
+            unfilledColor="white"
+            color="rgb(59,198,84)"
+            progress={0.3}
+            width={150}
+            height={10}
+            borderRadius={20}
+            style={{ marginTop: 20, borderWidth: -5 }}
+          />
         </View>
-      ) : (
-        <Quiz setquiz={setQuiz}/>
-      )}
-    </View>
+      </Pressable>
+
+      <View style={styles.edu}>
+        <TouchableOpacity style={[styles.popcard, styles.study]}>
+          <Image
+            style={styles.cardImage}
+            source={require("../assets/education_3181724.png")}
+          />
+          <Text style={styles.poptext}>Learn and Study</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.popcard, styles.quiz]}
+          onPress={() => navigation.navigate("Quiz")}
+        >
+          <Image
+            style={styles.cardImage}
+            source={require("../assets/search_3277438.png")}
+          />
+          <Text style={styles.poptext}>Take Quiz</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.popcard, styles.walk]}>
+          <Image
+            style={styles.cardImage}
+            source={require("../assets/team_9068396.png")}
+          />
+          <Text style={styles.poptext}>Walkthrough</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.popcard, styles.video]}>
+          <Image
+            style={styles.cardImage}
+            source={require("../assets/video_7214114.png")}
+          />
+          <Text style={styles.poptext}>Video Tutorials</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   popup: {
-    height: '110%',
-    width: '100%',
-    backgroundColor: 'rgb(243, 228, 201)',
+    height: "100%",
+    width: "100%",
+    backgroundColor: "white",
+    alignItems: "center",
   },
   topcard: {
-    flexDirection: 'column',
-    marginLeft: 50,
+    flexDirection: "column",
+    marginVertical: 20,
   },
   edu: {
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
+    justifyContent: "center",
+    flexWrap: "wrap",
+    flexDirection: "row",
     gap: 15,
-    width:"100%",
-  
+    width: "100%",
     marginTop: 30,
   },
   popcard: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: "50%",
-    backgroundColor: '#fff',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "40%",
+    backgroundColor: "#fff",
     flex: 0,
-    flexBasis: '40%',
+    flexBasis: "40%",
     borderRadius: 20,
-    margin:6,
-
+    margin: 6,
   },
   study: {
-    backgroundColor: '#d5ecf9',
-    borderColor: 'rgb(15, 37, 145)',
+    backgroundColor: "#d5ecf9",
+    borderColor: "rgb(15, 37, 145)",
   },
   quiz: {
-    backgroundColor: '#ffcffa',
-    borderColor: 'rgb(120, 21, 120)',
+    backgroundColor: "#ffcffa",
+    borderColor: "rgb(120, 21, 120)",
   },
   walk: {
-    backgroundColor: 'rgb(250, 250, 159)',
-    borderColor: 'rgb(166, 112, 31)',
+    backgroundColor: "rgb(250, 250, 159)",
+    borderColor: "rgb(166, 112, 31)",
   },
   video: {
-    backgroundColor: 'rgb(182, 255, 182)',
-    borderColor: 'rgb(19, 66, 22)',
+    backgroundColor: "rgb(182, 255, 182)",
+    borderColor: "rgb(19, 66, 22)",
   },
   cardImage: {
     height: 60,
-    width:60,    marginBottom: 20,
-  },
-  poptext: {
-    // Add styles for the popcard text
+    width: 60,
+    marginBottom: 20,
   },
   tip: {
-    marginTop: 20,
-    marginLeft:50
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });
 
