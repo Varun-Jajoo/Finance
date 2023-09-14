@@ -38,6 +38,11 @@ export default function Quiz({ setquiz }) {
     if (clickopt === quizData[ques].correctAnswer) {
       setScore(score + 1);
       set = true;
+    } else {
+      setUserData((prev) => ({
+        ...prev,
+        wrongQuestion: [...prev.wrongQuestion, quizData[ques].question],
+      }));
     }
 
     if (ques < quizData.length - 1) {
