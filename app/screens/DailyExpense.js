@@ -8,6 +8,7 @@ import {
   Dimensions,
   Image,
   TextInput,
+  Platform,
 } from "react-native";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../App";
@@ -26,7 +27,7 @@ const DailyExpense = () => {
   };
   const handleContinuePress = () => {
     const updatedSpend = inputValues.map((amount) => ({
-      spent:  (amount) || 0,
+      spent: amount || 0,
     }));
 
     const totalSpent = updatedSpend.reduce(
