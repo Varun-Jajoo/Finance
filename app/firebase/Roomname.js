@@ -52,6 +52,21 @@ const colors = [
   "#4DB6AC", // Teal
   "pink", // Blue Gray
 ];
+const backgroundColors = [
+  
+  '#F5FFFA', // mint
+  
+  '#E6F0FF', // lavender
+  '#D8BFD8', // thistle
+  '#DDA0DD', // plum
+  '#FFB6C1', // pink
+  '#FF7F50', // coral
+  '#AFEEEE', // paleturquoise
+  '#FFDAB9', // peach
+  '#FFE4C4', // bisque
+];
+
+
 
 const Roomname = () => {
   const [room, setRoom] = useState("");
@@ -117,10 +132,10 @@ const Roomname = () => {
   };
 
   return (
-    <SafeAreaView style={{ height: 900 }}>
+    <ScrollView style={{ height: 900 }}>
       <Text style={{ padding: 20, fontSize: 31, fontWeight: 600 }}>Chat</Text>
       {room ? (
-        <View style={{ backgroundColor: colors[forumTopics.indexOf(room)] }}>
+        <View style={{ backgroundColor: colors[forumTopics.indexOf(room)]  }}>
           <Text>
             <Chat room={room} setRoom={setRoom} />
           </Text>
@@ -138,6 +153,7 @@ const Roomname = () => {
                   marginVertical: 5,
                   borderRadius: 88,
                   marginHorizontal: 5,
+                  opacity:0.8
                 }}
               >
                 <Text style={{ fontWeight: "bold" }}>#{topic}</Text>
@@ -201,12 +217,13 @@ const Roomname = () => {
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    fontSize: 30,
+                    fontSize: 20,
+                    color:'gray'
                   }}
                 >
                   +
                 </Text>
-                <Text style={{ fontSize: 30 }}> Tap to add a meet </Text>
+                <Text style={{ fontSize: 20,color:'gray' }}> Tap to add a meet </Text>
               </Pressable>
             </View>
           </View>
@@ -218,13 +235,17 @@ const Roomname = () => {
                   style={{
                     height: 170,
                     width: 200,
-                    backgroundColor: "lightblue",
+                    backgroundColor: backgroundColors[id],
                     borderRadius: 20,
                     marginRight: 20,
+                    display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
                   }}
                 >
-                  <Text>{meet.meetingName}</Text>
-                  <Text>{meet.forums}</Text>
+                  <Text style={{fontWeight:700, bottom:10, margin:10}}>{meet.meetingName}</Text>
+                  <Text style={{marginRight:'50'}}>{meet.forums}</Text>
                   <Text>{meet.mode}</Text>
                   <Text>{meet.date}</Text>
                   <Text>{meet.time}</Text>
@@ -306,7 +327,7 @@ const Roomname = () => {
           />
         </ModalContent>
       </BottomModal>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
