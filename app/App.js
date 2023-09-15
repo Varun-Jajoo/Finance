@@ -24,7 +24,7 @@ export default function App() {
     salary: "7000",
     savings: "600",
     city: "Rural",
-    form: false,
+    form: true,
     leftToSpend: 0,
     points: 0,
     level: "1",
@@ -41,7 +41,7 @@ export default function App() {
       "What is investment banking",
       "What is debit card",
     ],
-    bankForm: false,
+    bankForm: true,
     aadhar: "",
     pan: "",
   });

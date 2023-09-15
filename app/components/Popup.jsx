@@ -56,7 +56,7 @@ const Popup = () => {
             borderColor="transparent"
             unfilledColor="white"
             color="rgb(59,198,84)"
-            progress={0.3}
+            progress={userData.level / 5}
             width={150}
             height={10}
             borderRadius={20}
