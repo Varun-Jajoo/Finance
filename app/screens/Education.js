@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import {
   ScrollView,
   View,
@@ -11,9 +11,11 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import * as Progress from "react-native-progress";
 import { useNavigation } from "@react-navigation/native";
+import { UserContext } from "../App";
 
 const Education = () => {
   const navigation = useNavigation();
+  const { userData, setUserData } = useContext(UserContext);
   const elevationStyle = Platform.select({
     ios: {
       shadowColor: "black",
@@ -32,6 +34,7 @@ const Education = () => {
 
   return (
     <ScrollView
+      bounces={false}
       style={{
         display: "flex",
         backgroundColor: "white",
@@ -84,7 +87,7 @@ const Education = () => {
           style={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
             backgroundColor: "#98bc62",
             height: 100,
@@ -95,10 +98,13 @@ const Education = () => {
         >
           <Image
             source={require("../assets/coin_9590150.png")}
-            style={{ height: 60, width: 60, marginRight: 20 }}
+            style={{ height: 60, width: 60, marginLeft: 10 }}
           />
           <View>
-            <Text>Points</Text>
+            <Text style={{ textAlign: "center", marginRight: 10 }}>
+              {" "}
+              {userData.points} Points
+            </Text>
           </View>
         </Pressable>
       </View>

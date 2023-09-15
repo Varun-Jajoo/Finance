@@ -17,6 +17,7 @@ import Quiz from "./components/Quiz";
 import LevelCompletion from "./screens/LevelCompletion";
 import LearnAndStudy from "./screens/LearnAndStudy";
 import Video from "./screens/Video";
+import BankOnboarding from "./screens/BankOnboarding";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -60,16 +61,16 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ headerShown: false }}
-        />
-        <Stack.Screen
+        /> */}
+        {/* <Stack.Screen
           name="Personal"
           component={PersonalQuestions}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Main"
           component={BottomTabs}
