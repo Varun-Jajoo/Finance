@@ -18,6 +18,7 @@ import LevelCompletion from "./screens/LevelCompletion";
 import LearnAndStudy from "./screens/LearnAndStudy";
 import Video from "./screens/Video";
 import BankOnboarding from "./screens/BankOnboarding";
+import BankOnboardingSecond from "./screens/BankOnboardingSecond";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -104,6 +105,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Popup"
           component={Popup}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="bo"
+          component={BankOnboardingSecond}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

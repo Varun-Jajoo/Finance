@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import StackNavigator from "./StackNavigator";
 import { useFonts } from "expo-font";
 import { ModalPortal } from "react-native-modals";
+import { AntDesign } from "@expo/vector-icons";
 
 export const UserContext = createContext();
 
@@ -40,6 +41,9 @@ export default function App() {
       "What is investment banking",
       "What is debit card",
     ],
+    bankForm: false,
+    aadhar: "",
+    pan: "",
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),
