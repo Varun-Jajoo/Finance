@@ -6,6 +6,7 @@ import {
   Platform,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../App";
@@ -15,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const BankOnboardingSecond = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const [check, setCheck] = useState(false);
   const navigation = useNavigation();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -63,13 +65,28 @@ const BankOnboardingSecond = () => {
           />
         </View>
         <TextInput style={styles.input} placeholder="Enter the IFCS code" />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter the otp sent to you"
-        />
-        <Pressable style={styles.continueButton} onPress={handlePress}>
-          <Text style={styles.continueButtonText}>Continue</Text>
-        </Pressable>
+        {check && (
+          <Pressable
+            style={styles.continueButton}
+            onPress={() => {
+              setCheck(false);
+              Alert.alert("An OTP is sent to you");
+            }}
+          >
+            <Text style={styles.continueButtonText}>Check IFCS Code</Text>
+          </Pressable>
+        )}
+        {!check && (
+          <>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter the otp sent to you"
+            />
+            <Pressable style={styles.continueButton} onPress={handlePress}>
+              <Text style={styles.continueButtonText}>Continue</Text>
+            </Pressable>
+          </>
+        )}
       </View>
     </SafeAreaView>
   );
