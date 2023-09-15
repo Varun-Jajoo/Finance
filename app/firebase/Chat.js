@@ -18,7 +18,7 @@ import { db } from "./firebase-config";
 import { UserContext } from "../App";
 
 const Chat = (props) => {
-  const { room } = props;
+  const { room, setRoom } = props;
   const { userData, setUserData } = useContext(UserContext);
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
@@ -75,6 +75,9 @@ const Chat = (props) => {
       />
       <TouchableOpacity onPress={handleSubmit}>
         <Text>Send</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setRoom(false)}>
+        <Text>Go bAck</Text>
       </TouchableOpacity>
     </View>
   );
