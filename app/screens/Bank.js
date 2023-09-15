@@ -39,17 +39,22 @@ const Bank = () => {
                   flexDirection: "row",
                   justifyContent: "space-around",
                   alignItems: "center",
-                  backgroundColor: "#F1C93B",
+                  
                   height: 80,
                   width: "90%",
                   borderRadius: 20,
                 }}
               >
+                <View>
                 <TouchableOpacity
                   style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    backgroundColor:"grey",
+                    borderRadius:90,
+                    height:70,
+                    width:70
                   }}
                   onPress={() => {
                     settransfer(true);
@@ -57,23 +62,53 @@ const Bank = () => {
                 >
                   <Image
                     source={require("../assets/refresh_545661.png")}
-                    style={{ height: 30, width: 30 }}
+                    style={{ height: 30, width: 30,backgroundColor:"grey",
+                  }}
                   />
-                  <Text>Transfer</Text>
                 </TouchableOpacity>
+                <Text style={{marginLeft:10}}>Transfer</Text>
+
+                </View>
+                <View>
                 <TouchableOpacity
                   style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    backgroundColor:"grey",
+                    borderRadius:90,
+                    height:79,
+                    width:79
                   }}
                 >
                   <Image
                     source={require("../assets/card.png")}
+                    style={{ height: 40, width: 40 }}
+                  />
+                  
+                </TouchableOpacity>
+                <Text style={{marginLeft:15}}>Details</Text>
+                </View>
+                <View>
+                <TouchableOpacity
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor:"grey",
+                    borderRadius:90,
+                    height:75,
+                    width:75
+                  }}
+                >
+                  <Image
+                    source={require("../assets/document_310909.png")}
                     style={{ height: 30, width: 30 }}
                   />
-                  <Text>Details</Text>
                 </TouchableOpacity>
+                <Text style={{marginLeft:10}}>Schemes</Text>
+
+                </View>
               </View>
               <Pressable
                 style={{
