@@ -26,6 +26,7 @@ import LearnAndStudy from "./screens/LearnAndStudy";
 import Video from "./screens/Video";
 import BankOnboarding from "./screens/BankOnboarding";
 import BankOnboardingSecond from "./screens/BankOnboardingSecond";
+import Utilize from "./components/Utilize";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();

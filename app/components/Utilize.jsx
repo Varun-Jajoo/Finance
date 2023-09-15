@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,ScrollView,Pressable,Image} from 'react-native'
+import { StyleSheet, Text, View ,ScrollView,Pressable,Image,Platform} from 'react-native'
 import React from 'react'
 import * as Progress from 'react-native-progress'
 const Utilize = () => {
