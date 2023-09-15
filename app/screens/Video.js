@@ -13,6 +13,7 @@ import { UserContext } from "../App";
 const Video = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [playing, setPlaying] = useState(false);
+  const vid = ["AIOR1x7fPcQ", "OJGUYYUPH_0", "W4hcZe79qS0"];
 
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
@@ -24,7 +25,7 @@ const Video = () => {
   const togglePlaying = useCallback(() => {
     setPlaying((prev) => !prev);
   }, []);
-
+  console.log(userData.wrongQuestionId);
   return (
     <SafeAreaView
       style={{
@@ -57,7 +58,7 @@ const Video = () => {
                 <YoutubePlayer
                   height={250}
                   play={playing}
-                  videoId={"dQw4w9WgXcQ"}
+                  videoId={vid[id]}
                   onChangeState={onStateChange}
                 />
                 {/* <Button

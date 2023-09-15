@@ -27,7 +27,7 @@ const LevelCompletion = () => {
         ...prev,
         level: parseInt(prev.level) + 1,
       }));
-      navigation.navigate("Education");
+      navigation.navigate("Popup");
     } else {
       Alert.alert(
         "Complete All",

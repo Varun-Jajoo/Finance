@@ -36,11 +36,7 @@ export default function App() {
         video: false,
       },
     },
-    wrongQuestion: [
-      "What is credit card",
-      "What is investment banking",
-      "What is debit card",
-    ],
+    wrongQuestion: [],
     bankForm: true,
     aadhar: "",
     pan: "",
