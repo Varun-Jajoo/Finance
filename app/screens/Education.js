@@ -10,8 +10,10 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Progress from "react-native-progress";
+import { useNavigation } from "@react-navigation/native";
 
 const Education = () => {
+  const navigation = useNavigation();
   const elevationStyle = Platform.select({
     ios: {
       shadowColor: "black",
@@ -152,6 +154,7 @@ const Education = () => {
             borderRadius: 35,
             ...elevationStyle, // Apply elevationStyle here
           }}
+          onPress={() => navigation.navigate("Popup")}
         >
           <Image
             source={require("../assets/3d-calculator_10473465.png")}
@@ -167,8 +170,6 @@ const Education = () => {
           >
             <Text
               style={{
-                
-                
                 fontSize: 20,
                 marginLeft: 20,
                 marginRight: 20,
@@ -218,7 +219,7 @@ const Education = () => {
             <Text
               style={{
                 color: "black",
-                
+
                 fontSize: 20,
                 marginLeft: 16,
                 textAlign: "left",
@@ -250,7 +251,7 @@ const Education = () => {
             width: "90%",
             backgroundColor: "#F1C93B",
             borderRadius: 35,
-            ...elevationStyle, 
+            ...elevationStyle,
           }}
         >
           <Image
@@ -268,7 +269,7 @@ const Education = () => {
             <Text
               style={{
                 color: "black",
-                
+
                 fontSize: 20,
                 fontFamily: "Poppins",
                 //fontWeight: 200,

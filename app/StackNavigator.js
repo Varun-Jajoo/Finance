@@ -100,6 +100,11 @@ const StackNavigator = () => {
           component={Video}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Popup"
+          component={Popup}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

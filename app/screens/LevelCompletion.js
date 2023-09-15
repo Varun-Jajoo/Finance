@@ -17,6 +17,10 @@ const LevelCompletion = () => {
   const { userData, setUserData } = useContext(UserContext);
   const navigation = useNavigation();
   const handleNextLevel = () => {
+    setUserData((prev) => ({
+      ...prev,
+      points: prev.points + score,
+    }));
     const check = userData.progress.bof;
     if (check.quiz) {
       setUserData((prev) => ({

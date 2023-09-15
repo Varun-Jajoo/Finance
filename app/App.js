@@ -25,7 +25,7 @@ export default function App() {
     city: "Rural",
     form: true,
     leftToSpend: 0,
-    points: "0",
+    points: 0,
     level: "1",
     progress: {
       bof: {

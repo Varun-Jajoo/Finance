@@ -47,13 +47,13 @@ const Video = () => {
           Imporove you knowledge by learning the things that went wrong during
           previous Level
         </Text>
-        <ScrollView showsHorizontalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {userData.wrongQuestion.map((ques, id) => (
             <View key={id}>
-              <Text>
-                {id + 1}. {ques}
+              <Text style={{ paddingBottom: 20, fontSize: 20 }}>
+                {id + 1}. {ques} ?
               </Text>
-              <View>
+              <View style={{ borderRadius: 10 }}>
                 <YoutubePlayer
                   height={250}
                   play={playing}

@@ -112,7 +112,7 @@ const Popup = () => {
             borderRadius: 40,
             backgroundColor: "red",
             position: "relative",
-            bottom: 218,
+            bottom: 227,
             left: 164,
           }}
         />
