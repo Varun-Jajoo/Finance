@@ -55,7 +55,7 @@ const Chat = (props) => {
   };
 
   return (
-    <View>
+    <View style={{ height: 200 }}>
       <FlatList
         data={messages}
         keyExtractor={(item) => item.id}
