@@ -122,16 +122,11 @@ const Roomname = () => {
       {room ? (
         <View style={{ backgroundColor: colors[forumTopics.indexOf(room)] }}>
           <Text>
-            <Chat room={room} />
+            <Chat room={room} setRoom={setRoom} />
           </Text>
         </View>
       ) : (
         <View style={{ flex: 1 }}>
-          <TextInput
-            style={{ display: "none", height: 100, width: 100 }}
-            ref={ref}
-            value={room}
-          />
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
             {forumTopics.map((topic, index) => (
               <TouchableOpacity
