@@ -16,6 +16,7 @@ import Popup from "./components/Popup";
 import Quiz from "./components/Quiz";
 import LevelCompletion from "./screens/LevelCompletion";
 import LearnAndStudy from "./screens/LearnAndStudy";
+import Video from "./screens/Video";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -92,6 +93,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Learn"
           component={LearnAndStudy}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Video"
+          component={Video}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

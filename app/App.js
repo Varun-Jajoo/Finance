@@ -35,6 +35,11 @@ export default function App() {
         video: false,
       },
     },
+    wrongQuestion: [
+      "What is credit card",
+      "What is investment banking",
+      "What is debit card",
+    ],
   });
   const [loaded] = useFonts({
     Poppins: require("./assets/fonts/Poppins-Medium.ttf"),

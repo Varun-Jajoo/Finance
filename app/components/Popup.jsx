@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -9,11 +9,12 @@ import {
   SafeAreaView,
   Pressable,
 } from "react-native";
-import Quiz from "./Quiz";
 import * as Progress from "react-native-progress";
+import { UserContext } from "../App";
 
 const Popup = () => {
   const navigation = useNavigation();
+  const { userData, setUserData } = useContext(UserContext);
   return (
     <SafeAreaView style={styles.popup}>
       <View style={styles.topcard}>
@@ -92,7 +93,10 @@ const Popup = () => {
           />
           <Text style={styles.poptext}>Walkthrough</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.popcard, styles.video]}>
+        <TouchableOpacity
+          style={[styles.popcard, styles.video]}
+          onPress={() => navigation.navigate("Video")}
+        >
           <Image
             style={styles.cardImage}
             source={require("../assets/video_7214114.png")}
@@ -100,6 +104,19 @@ const Popup = () => {
           <Text style={styles.poptext}>Video Tutorials</Text>
         </TouchableOpacity>
       </View>
+      {userData.wrongQuestion.length > 0 && (
+        <View
+          style={{
+            width: 25,
+            height: 25,
+            borderRadius: 40,
+            backgroundColor: "red",
+            position: "relative",
+            bottom: 218,
+            left: 164,
+          }}
+        />
+      )}
     </SafeAreaView>
   );
 };
