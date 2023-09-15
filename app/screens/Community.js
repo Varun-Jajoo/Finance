@@ -7,12 +7,13 @@ import Utilize from '../components/Utilize'
 import FixedDeposit from './FixedDeposit'
 import PersonalDataForm from '../components/PersonalDataForm'
 import LearnAndStudy from './LearnAndStudy'
+import Roomname from '../firebase/Roomname'
 
 
 const Community = () => {
   return (
     <ScrollView>
-   <LearnAndStudy/>
+   <Roomname/>
     </ScrollView>
   )
 }
