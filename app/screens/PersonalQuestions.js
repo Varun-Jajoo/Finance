@@ -101,8 +101,9 @@ const PersonalQuestions = () => {
         routes: [{ name: "Main" }],
       });
       try {
+        console.log(userData);
         const response = await axios.post(
-          "https://f156-103-173-245-53.ngrok-free.app", // Update with your server URL
+          "https://nfcbackend.snehalpoptani.repl.co/add", // Update with your server URL
           {
             level: userData.level,
             name: userData.name,
@@ -122,7 +123,6 @@ const PersonalQuestions = () => {
       }
     }
   };
-
   return (
     <SafeAreaView
       style={{
