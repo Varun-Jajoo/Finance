@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -23,14 +30,80 @@ import BankOnboardingSecond from "./screens/BankOnboardingSecond";
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
   const Stack = createNativeStackNavigator();
+  const CustomTabBarButton = ({ children, onPress }) => (
+    <TouchableOpacity
+      style={{
+        top: -15,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onPress={onPress}
+    >
+      <View
+        style={{
+          width: 70,
+          height: 70,
+          borderRadius: 35,
+          backgroundColor: "#e32f45",
+        }}
+      >
+        {children}
+      </View>
+    </TouchableOpacity>
+  );
 
   function BottomTabs() {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            // position: "absolute",
+            // bottom: 25,
+            // left: 20,
+            // right: 20,
+            elevation: 0,
+            backgroundColor: "white",
+            borderRadius: 15,
+            height: 90,
+          },
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={Home}
-          options={{ tabBarLabel: "Home", headerShown: false }}
+          options={{
+            tabBarLabel: "Savings",
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 10,
+                }}
+              >
+                <Image
+                  source={require("./assets/save-money_1611179.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 27,
+                    height: 27,
+                    tintColor: focused ? "#e32f45" : "#748c94",
+                  }}
+                />
+                <Text
+                  style={{
+                    color: focused ? "#e32f45" : "#748c94",
+                    fontSize: 13,
+                    paddingTop: 7,
+                  }}
+                >
+                  Savings
+                </Text>
+              </View>
+            ),
+          }}
         />
         <Tab.Screen
           name="Bank"
@@ -38,22 +111,130 @@ const StackNavigator = () => {
           options={{
             tabBarLabel: "Bank",
             headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 10,
+                }}
+              >
+                <Image
+                  source={require("./assets/bank_522554.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 27,
+                    height: 27,
+                    tintColor: focused ? "#e32f45" : "#748c94",
+                  }}
+                />
+                <Text
+                  style={{
+                    color: focused ? "#e32f45" : "#748c94",
+                    fontSize: 13,
+                    paddingTop: 7,
+                  }}
+                >
+                  Bank
+                </Text>
+              </View>
+            ),
           }}
         />
         <Tab.Screen
           name="Education"
           component={Education}
-          options={{ tabBarLabel: "Education", headerShown: false }}
-        />
-        <Tab.Screen
-          name="Expenses"
-          component={ExpensesLanding}
-          options={{ tabBarLabel: "Expenses", headerShown: false }}
+          options={{
+            tabBarLabel: "Education",
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={require("./assets/graduation-cap_3074058.png")}
+                resizeMode="contain"
+                style={{
+                  width: 27,
+                  height: 27,
+                  tintColor: focused ? "white" : "white",
+                }}
+              />
+            ),
+            tabBarButton: (props) => (
+              // Return the CustomTabBarButton component
+              <CustomTabBarButton {...props} />
+            ),
+          }}
         />
         <Tab.Screen
           name="Community"
           component={Community}
-          options={{ tabBarLabel: "Community", headerShown: false }}
+          options={{
+            tabBarLabel: "Community",
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 10,
+                }}
+              >
+                <Image
+                  source={require("./assets/bubble-chat_2076218.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 27,
+                    height: 27,
+                    tintColor: focused ? "#e32f45" : "#748c94",
+                  }}
+                />
+                <Text
+                  style={{
+                    color: focused ? "#e32f45" : "#748c94",
+                    fontSize: 13,
+                    paddingTop: 7,
+                  }}
+                >
+                  Community
+                </Text>
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Expenses"
+          component={ExpensesLanding}
+          options={{
+            tabBarLabel: "Expenses",
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  top: 10,
+                }}
+              >
+                <Image
+                  source={require("./assets/expenses_5501384.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 27,
+                    height: 27,
+                    tintColor: focused ? "#e32f45" : "#748c94",
+                  }}
+                />
+                <Text
+                  style={{
+                    color: focused ? "#e32f45" : "#748c94",
+                    fontSize: 13,
+                    paddingTop: 7,
+                  }}
+                >
+                  Expenses
+                </Text>
+              </View>
+            ),
+          }}
         />
       </Tab.Navigator>
     );
