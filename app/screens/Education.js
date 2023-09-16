@@ -45,11 +45,12 @@ const Education = () => {
         source={require("../assets/school.png")}
         style={{
           position: "absolute",
-          height: "25%",
+          height: "30%",
           width: "100%",
           top: 0,
           left: 0,
           backgroundColor: "#F1C93B",
+
         }}
       />
 
@@ -59,7 +60,8 @@ const Education = () => {
           justifyContent: "space-around",
           alignItems: "center",
           flexDirection: "row",
-          paddingTop: "37%",
+          paddingTop: "47%",
+          
         }}
       >
         <Pressable
@@ -76,11 +78,11 @@ const Education = () => {
           }}
         >
           <Image
-            source={require("../assets/silver-medal_3188893.png")}
-            style={{ height: 60, width: 60, marginRight: 15 }}
+            source={require("../assets/rank-svgrepo-com.png")}
+            style={{ height: 55, width: 55, marginRight: 15 }}
           />
           <View>
-            <Text>Rank</Text>
+            <Text style={{fontWeight:600}}>Rank</Text>
           </View>
         </Pressable>
         <Pressable
@@ -93,15 +95,15 @@ const Education = () => {
             height: 100,
             width: 160,
             borderRadius: 20,
-            ...elevationStyle,
+            
           }}
         >
           <Image
-            source={require("../assets/coin_9590150.png")}
-            style={{ height: 60, width: 60, marginLeft: 10 }}
+            source={require("../assets/dollar-bag-svgrepo-com.png")}
+            style={{ height: 55, width: 55, marginLeft: 15 }}
           />
           <Pressable onPress={() => navigation.navigate("Utilize")}>
-            <Text style={{ textAlign: "center", marginRight: 10 }}>
+            <Text style={{ textAlign: "center", marginRight: 10, fontWeight:600 }}>
               {" "}
               {userData.points} Points
             </Text>
@@ -156,14 +158,14 @@ const Education = () => {
             alignItems: "center",
             height: "25%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle, // Apply elevationStyle here
+            backgroundColor: "#fcdcae",
+            borderRadius: 55,
+            // Apply elevationStyle here
           }}
           onPress={() => navigation.navigate("Popup")}
         >
           <Image
-            source={require("../assets/3d-calculator_10473465.png")}
+            source={require("../assets/attend-class-svgrepo-com.png")}
             style={{ height: 80, width: 80 }}
           />
           <View
@@ -172,6 +174,7 @@ const Education = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              
             }}
           >
             <Text
@@ -181,6 +184,7 @@ const Education = () => {
                 marginRight: 20,
                 fontFamily: "Poppins",
                 //fontWeight: 200,
+                color:'brown'
               }}
             >
               Basics of Finance
@@ -191,6 +195,7 @@ const Education = () => {
               color="rgb(59,198,84)"
               progress={userData.level / 5}
               width={150}
+              bwidth
               height={10}
               borderRadius={20}
               style={{ marginTop: 20 }}
@@ -205,14 +210,14 @@ const Education = () => {
             alignItems: "center",
             height: "25%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle, // Apply elevationStyle here
+            backgroundColor: "#fcdcae",
+            borderRadius: 55,
+             // Apply elevationStyle here
           }}
         >
           <Image
-            source={require("../assets/notification_6206466.png")}
-            style={{ height: 80, width: 80 }}
+            source={require("../assets/alert-rhombus-fill-svgrepo-com.png")}
+            style={{ height: 80, width: 80, marginRight:20 }}
           />
           <View
             style={{
@@ -224,10 +229,10 @@ const Education = () => {
           >
             <Text
               style={{
-                color: "black",
+                color: "brown",
 
                 fontSize: 20,
-                marginLeft: 16,
+                marginLeft: 10,
                 textAlign: "left",
                 fontFamily: "Poppins",
                 //fontWeight: 100,
@@ -255,13 +260,13 @@ const Education = () => {
             alignItems: "center",
             height: "25%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle,
+            backgroundColor: "#fcdcae",
+            borderRadius: 55,
+            
           }}
         >
           <Image
-            source={require("../assets/piggy-bank_1511168.png")}
+            source={require("../assets/finance-svgrepo-com.png")}
             style={{ height: 80, width: 80, margin: 8 }}
           />
           <View
@@ -274,7 +279,7 @@ const Education = () => {
           >
             <Text
               style={{
-                color: "black",
+                color: "brown",
 
                 fontSize: 20,
                 fontFamily: "Poppins",

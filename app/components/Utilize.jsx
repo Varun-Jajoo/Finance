@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,ScrollView,Pressable,Image,Platform} from 'react-native'
+import { StyleSheet, Text, View ,ScrollView,Pressable,Image,Platform,} from 'react-native'
 import React from 'react'
 import * as Progress from 'react-native-progress'
 const Utilize = () => {
@@ -19,19 +19,23 @@ const Utilize = () => {
       });
    
   return (
-    <View style={{ display: "flex",height:800, justifyContent: "center",
+    <ScrollView>
+      <View style={{ display: "flex",height:800, justifyContent: "center",
     alignItems: "center",gap:25}}>
+       <Image source={require("../assets/family-fishing-cuate.png")} style={{width:450, height:300, margin:10 }}/>
+    
       <Pressable
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            height: "25%",
+            height: "15%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle, // Apply elevationStyle here
+            backgroundColor: "#fcdcae",
+            borderRadius: 45,
+            marginTop:10
+            // Apply elevationStyle here
           }}
         >
           {/* <Image
@@ -75,11 +79,11 @@ const Utilize = () => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            height: "25%",
+            height: "15%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle, // Apply elevationStyle here
+            backgroundColor: "#fcdcae",
+            borderRadius: 45,
+             // Apply elevationStyle here
           }}
         >
           {/* <Image
@@ -125,11 +129,11 @@ const Utilize = () => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            height: "25%",
+            height: "15%",
             width: "90%",
-            backgroundColor: "#F1C93B",
-            borderRadius: 35,
-            ...elevationStyle, 
+            backgroundColor: "#fcdcae",
+            borderRadius: 45,
+            
           }}
         >
           {/* <Image
@@ -158,7 +162,10 @@ const Utilize = () => {
            
           </View>
         </Pressable>
+      
     </View>
+    </ScrollView>
+    
   )
 }
 
