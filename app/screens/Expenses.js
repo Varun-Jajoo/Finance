@@ -25,19 +25,19 @@ const Expenses = () => {
               fontSize: 20,
               marginRight: 10,
               textAlign: "left",
-              // fontFamily:"Poppins",
+               fontFamily:"Poppins",
             }}
           >
             View your Daily transaction
           </Text>
-          <Text style={{ textAlign: "center" ,color:"#1b1b1b",marginTop:5}}>Your  daily  report</Text>
+          <Text style={{ fontFamily:"Poppins" ,textAlign: "center" ,color:"#1b1b1b",marginTop:5}}>Your  daily  report</Text>
         </View>
       </Pressable>
       <View style={{display:'flex',flexDirection:'row',alignItems:"center",justifyContent:'center',flexWrap:"wrap"}}> 
       <View style={{height:170,width:170,borderRadius:400,borderColor:"#F1C93B",borderWidth:20,margin:10}}>
        <View style={{display:'flex',justifyContent:'center',alignItems:"center",marginTop:40}}>
-        <Text style={{color:"black"}}>Clothes</Text>
-        <Text style={{color:"black"}}>₹2000</Text>
+        <Text style={{fontFamily:"Poppins", color:"black"}}>Clothes</Text>
+        <Text style={{fontFamily:"Poppins",color:"black"}}>₹2000</Text>
         </View>
       </View>
       </View>

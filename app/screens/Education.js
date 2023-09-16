@@ -93,19 +93,19 @@ const Education = () => {
             height: 100,
             width: 160,
             borderRadius: 20,
-            ...elevationStyle, // Apply elevationStyle here
+            ...elevationStyle,
           }}
         >
           <Image
             source={require("../assets/coin_9590150.png")}
             style={{ height: 60, width: 60, marginLeft: 10 }}
           />
-          <View>
+          <Pressable onPress={() => navigation.navigate("Utilize")}>
             <Text style={{ textAlign: "center", marginRight: 10 }}>
               {" "}
               {userData.points} Points
             </Text>
-          </View>
+          </Pressable>
         </Pressable>
       </View>
       <View
