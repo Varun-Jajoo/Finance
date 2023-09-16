@@ -18,9 +18,9 @@ import { ModalButton } from "react-native-modals";
 import { ModalTitle } from "react-native-modals";
 import { SlideAnimation } from "react-native-modals";
 import { ModalContent } from "react-native-modals";
-import Expenses from "./Expenses";
 
 const Home = () => {
+  const[display,setdisplay]=useState(true)
   const [goals, setGoals] = useState([]);
   const [newGoalName, setNewGoalName] = useState("");
   const [newGoalAmount, setNewGoalAmount] = useState("");
@@ -132,7 +132,9 @@ const Home = () => {
           />
           <Pressable
             style={styles.savetop}
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={() => {setModalVisible(!modalVisible) 
+              setdisplay(false)}}
+            
           >
             <Image
               source={require("../assets/tugrik_9328452.png")}
@@ -151,20 +153,16 @@ const Home = () => {
                   color: "#1b1b1b",
                   fontSize: 20,
                   textAlign: "left",
-                  fontFamily:"Poppins",
-                  
                 }}
               >
                 Add a Saving Goal
               </Text>
-              <Text style={{ textAlign: "justify", color: "#1b1b1b" }}>
+              <Text style={{ textAlign: "center", color: "#1b1b1b" }}>
                 We will keep a report!
               </Text>
             </View>
           </Pressable>
-          <View style={{borderColor:"lightgrey",borderWidth:2,height:200,width:300,marginTop:80,borderRadius:20,display:'flex',justifyContent:'center',alignItems:'center'}}>
-              <Text style={{color:"lightgrey",fontSize:30,fontFamily:'Poppins'}}>Add Goals to be Dispalyed here!</Text>
-</View>
+         {display ? <View style={{borderColor:"lightgrey",borderRadius:20,borderWidth:2,height:250,width:350,marginTop:80,display:"flex",justifyContent:"center",alignItems:"center"}}><Text style={{fontSize:30,fontFamily:"Poppins",color:"lightgrey"}}>Add your Financial goals here!</Text></View>:
           <FlatList
             style={{ marginTop: 80 }}
             data={goals}
@@ -172,10 +170,9 @@ const Home = () => {
             keyExtractor={(item, index) => index.toString()}
             contentContainerStyle={{ paddingBottom: 180 }}
             showsVerticalScrollIndicator={false}
-          />
+          />}
         </View>
       </View>
-     
       <BottomModal
         swipeThreshold={200}
         onBackDropPress={() => setModalVisible(!modalVisible)}
@@ -197,7 +194,7 @@ const Home = () => {
         }
         modalTitle={
           <ModalTitle
-            title="Add Deatils for Saving Goal"
+            title="Add Details for Saving Goal"
             textStyle={{ fontSize: 20, paddingBottom: 1 }}
             hasTitleBar={false}
           />
