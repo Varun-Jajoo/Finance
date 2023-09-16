@@ -294,6 +294,11 @@ const StackNavigator = () => {
           component={BankOnboardingSecond}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Utilize"
+          component={Utilize}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
