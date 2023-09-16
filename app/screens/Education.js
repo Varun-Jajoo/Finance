@@ -243,7 +243,7 @@ const Education = () => {
               borderColor="transparent"
               unfilledColor="white"
               color="rgb(59,198,84)"
-              progress={0}
+              progress={1 / 5}
               width={150}
               height={10}
               borderRadius={20}
@@ -290,7 +290,7 @@ const Education = () => {
               borderColor="transparent"
               unfilledColor="white"
               color="rgb(59,198,84)"
-              progress={0}
+              progress={1 / 5}
               width={150}
               height={10}
               borderRadius={20}

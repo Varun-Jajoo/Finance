@@ -25,17 +25,24 @@ const ExpensesLanding = () => {
           alignItems: "center",
         }}
       >
-        <Text style={{ fontFamily:"Poppins", fontSize: 20, fontWeight: "bold", marginTop: 60 }}>
+        <Text
+          style={{
+            fontFamily: "Poppins",
+            fontSize: 20,
+            fontWeight: "bold",
+            marginTop: 60,
+          }}
+        >
           Daily Expenses
         </Text>
         <Text
           style={{
-            fontFamily:"Poppins",
+            fontFamily: "Poppins",
             fontSize: 16,
             fontWeight: "bold",
             marginTop: 30,
             marginBottom: 10,
-            color:"#2b6747"
+            color: "#2b6747",
           }}
         >
           September 2023
@@ -43,9 +50,9 @@ const ExpensesLanding = () => {
         <Pressable
           style={{
             display: "flex",
-            backgroundColor:"#F1C93B",
-            borderRadius:20,
-            marginBottom:35,
+            backgroundColor: "#F1C93B",
+            borderRadius: 20,
+            marginBottom: 35,
             width: 320,
             padding: 20,
             justifyContent: "center",
@@ -60,8 +67,16 @@ const ExpensesLanding = () => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontFamily:"Poppins",fontWeight: "bold" }}>Left to Spend</Text>
-            <Text style={{ fontFamily:"Poppins",marginLeft: 60, fontWeight: "bold" }}>
+            <Text style={{ fontFamily: "Poppins", fontWeight: "bold" }}>
+              Left to Spend
+            </Text>
+            <Text
+              style={{
+                fontFamily: "Poppins",
+                marginLeft: 60,
+                fontWeight: "bold",
+              }}
+            >
               Monthly Balance
             </Text>
           </Pressable>
@@ -75,12 +90,12 @@ const ExpensesLanding = () => {
               alignItems: "center",
             }}
           >
-            <Text style={{fontFamily:"Poppins"}}>
+            <Text style={{ fontFamily: "Poppins" }}>
               {userData.leftToSpend === 0
                 ? userData.salary - userData.savings
                 : userData.leftToSpend}
             </Text>
-            <Text style={{ fontFamily:"Poppins",marginLeft: 160 }}>
+            <Text style={{ fontFamily: "Poppins", marginLeft: 160 }}>
               {userData.salary - userData.savings}
             </Text>
           </Pressable>
@@ -90,10 +105,7 @@ const ExpensesLanding = () => {
             animationType="spring"
             unfilledColor="white"
             color="red"
-            progress={
-              (userData.salary - userData.savings - userData.leftToSpend) /
-              userData.salary
-            }
+            progress={userData.salary - userData.savings}
             width={255}
             height={13}
             borderRadius={20}
@@ -120,7 +132,7 @@ const ExpensesLanding = () => {
           >
             <Text
               style={{
-                fontFamily:"Poppins",
+                fontFamily: "Poppins",
                 color: "#1b1b1b",
                 fontSize: 20,
                 marginRight: 10,
@@ -130,7 +142,12 @@ const ExpensesLanding = () => {
               Add an Expense
             </Text>
             <Text
-              style={{ fontFamily:"Poppins",textAlign: "center", color: "#1b1b1b", marginTop: 5 }}
+              style={{
+                fontFamily: "Poppins",
+                textAlign: "center",
+                color: "#1b1b1b",
+                marginTop: 5,
+              }}
             >
               We will keep a daily report
             </Text>
@@ -156,13 +173,18 @@ const ExpensesLanding = () => {
                 fontSize: 20,
                 marginRight: 10,
                 textAlign: "left",
-                fontFamily:"Poppins",
+                fontFamily: "Poppins",
               }}
             >
               Spending Report
             </Text>
             <Text
-              style={{ fontFamily:"Poppins",textAlign: "center", color: "#1b1b1b", marginTop: 5 }}
+              style={{
+                fontFamily: "Poppins",
+                textAlign: "center",
+                color: "#1b1b1b",
+                marginTop: 5,
+              }}
             >
               Adjust your Expense Anytime
             </Text>
