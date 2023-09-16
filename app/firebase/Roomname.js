@@ -130,7 +130,7 @@ const Roomname = () => {
   };
 
   return (
-    <ScrollView style={{ height: 900 }}>
+    <ScrollView style={{ height: 900, paddingTop: 30 }}>
       <Text style={{ padding: 20, fontSize: 31, fontWeight: 600 }}>Chat</Text>
       {room ? (
         <View style={{ backgroundColor: colors[forumTopics.indexOf(room)] }}>
