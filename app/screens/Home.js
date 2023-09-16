@@ -137,8 +137,8 @@ const Home = () => {
             
           >
             <Image
-              source={require("../assets/tugrik_9328452.png")}
-              style={{ height: 80, width: 80, marginRight: 20 }}
+              source={require("../assets/wallet-wallet-svgrepo-com.png")}
+              style={{ height: 70, width: 80, marginRight: 35, marginTop:5 }}
             />
             <View
               style={{
@@ -158,7 +158,7 @@ const Home = () => {
                 Add a Saving Goal
               </Text>
               <Text style={{ textAlign: "center", color: "#1b1b1b" }}>
-                We will keep a report!
+                We will keep a Report
               </Text>
             </View>
           </Pressable>

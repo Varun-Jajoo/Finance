@@ -8,6 +8,7 @@ import {
   ScrollView,
   Platform,
   Pressable,
+  Image
 } from "react-native";
 import Chat from "./Chat";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -241,14 +242,15 @@ const Roomname = () => {
                     display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center",
+                  
                   }}
                 >
                   <Text style={{fontWeight:700, bottom:10, margin:10}}>{meet.meetingName}</Text>
-                  <Text style={{marginRight:'50'}}>{meet.forums}</Text>
-                  <Text>{meet.mode}</Text>
-                  <Text>{meet.date}</Text>
-                  <Text>{meet.time}</Text>
+                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/profile-round-1342-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text style={{marginRight:'50'}}>Snehal Poptani</Text></View>
+                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/hashtag-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text style={{marginRight:'50'}}>{meet.forums}</Text></View>
+                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/camera-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text>{meet.mode}</Text></View>
+                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/clock-two-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text>{meet.date}, {meet.time}</Text></View>
+                  
                 </View>
               ))
             ) : (

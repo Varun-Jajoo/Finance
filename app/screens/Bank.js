@@ -46,54 +46,78 @@ const Bank = () => {
               <View
                 style={{
                   backgroundColor: "#ecf2fc",
-                  height: 150,
+                  height: 200,
                   width: 170,
                   borderRadius: 20,
                 }}
               >
+                <Image source={require("../assets/bank-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
                 <Text
-                  style={{ color: "darkblue", marginLeft: 10, marginTop: 10 }}
+                  style={{ color: "darkblue", marginLeft: 10, fontWeight:600 }}
                 >
+                  
                   Zero Balance Account
+                </Text>
+                <Text
+                  style={{ color: "darkblue", margin: 10,opacity:0.5, fontSize:12 }}
+                >
+                  Open an Account with no minimum balance
                 </Text>
               </View>
               <Pressable
               onPress={()=> navigation.navigate("Scheme")}
                 style={{
                   backgroundColor: "#fcdcae",
-                  height: 150,
+                  height: 200,
                   width: 170,
                   borderRadius: 20,
                 }}
               >
-                <Text style={{ color: "brown", marginLeft: 10, marginTop: 10 }}>
+                <Image source={require("../assets/document-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
+                <Text style={{ color: "brown", marginLeft: 10, fontWeight:600}}>
                   Schema Doc Generation
+                </Text>
+                <Text
+                  style={{ color: "brown", margin: 10,opacity:0.5, fontSize:12 }}
+                >
+                  Hassle-free application for eligible Yojnas
                 </Text>
               </Pressable>
               <View
                 style={{
                   backgroundColor: "#ddffdf",
-                  height: 150,
+                  height: 200,
                   width: 170,
                   borderRadius: 20,
                 }}
               >
+                <Image source={require("../assets/money-check-dollar-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
                 <Text
-                  style={{ color: "darkgreen", marginLeft: 10, marginTop: 10 }}
+                  style={{ color: "darkgreen", marginLeft: 10, fontWeight:600 }}
                 >
                   Personal Saving Account
+                </Text>
+                <Text
+                  style={{ color: "darkgreen", margin: 10,opacity:0.5, fontSize:12 }}
+                >
+                  Open a Savings Account online
                 </Text>
               </View>
               <View
                 style={{
                   backgroundColor: "#ddeded",
-                  height: 150,
+                  height: 200,
                   width: 170,
                   borderRadius: 20,
                 }}
               >
-                <Text style={{ marginLeft: 10, marginTop: 10 }}>
+                <Image source={require("../assets/bill-dollar-left-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
+                <Text style={{ marginLeft: 10, fontWeight:600}}>
                   Bill Payments
+                </Text>
+                <Text
+                  style={{ margin: 10,opacity:0.5, fontSize:12 }}>
+                  Track your Due and Paid Bills
                 </Text>
               </View>
             </View>

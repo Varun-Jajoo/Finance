@@ -72,7 +72,7 @@ const Education = () => {
             height: 100,
             width: 160,
             borderRadius: 20,
-            ...elevationStyle, // Apply elevationStyle here
+             // Apply elevationStyle here
           }}
         >
           <Image
