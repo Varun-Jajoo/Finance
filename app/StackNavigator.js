@@ -28,6 +28,7 @@ import BankOnboarding from "./screens/BankOnboarding";
 import BankOnboardingSecond from "./screens/BankOnboardingSecond";
 import Utilize from "./components/Utilize";
 import Scheme from "./screens/Scheme";
+import Document from "./screens/Document";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -303,6 +304,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Scheme"
           component={Scheme}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Doc"
+          component={Document}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
