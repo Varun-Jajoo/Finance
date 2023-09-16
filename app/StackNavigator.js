@@ -27,6 +27,7 @@ import Video from "./screens/Video";
 import BankOnboarding from "./screens/BankOnboarding";
 import BankOnboardingSecond from "./screens/BankOnboardingSecond";
 import Utilize from "./components/Utilize";
+import Scheme from "./screens/Scheme";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -297,6 +298,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Utilize"
           component={Utilize}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Scheme"
+          component={Scheme}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
