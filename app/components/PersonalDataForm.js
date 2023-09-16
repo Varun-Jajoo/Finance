@@ -42,7 +42,7 @@ const PersonalDataForm = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Personal Data</Text>
+      <Text style={{fontFamily:"Poppins"}}>Personal Data</Text>
       <TextInput
         placeholder="Level"
         style={inputStyle}
