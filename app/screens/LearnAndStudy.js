@@ -5,8 +5,7 @@ import {
   financeInfoCards2,
   financeInfoCards3,
   financeInfoCards4,
-} from "../data/Learn"; // Make sure to provide the correct path
-
+} from "../data/Learn"; 
 const LearnAndStudy = () => {
   const [cardIndex, setCardIndex] = useState(0);
   const [cardColorIndex, setCardColorIndex] = useState(0);
@@ -18,12 +17,12 @@ const LearnAndStudy = () => {
     { backgroundColor: "lightgreen", textColor: "darkgreen" },
   ];
 
-  const cards = [...financeInfoCards1];
+  const cards = [...financeInfoCards1, ...financeInfoCards2, ...financeInfoCards3, ...financeInfoCards4];
 
   const handleNext = () => {
     if (cardIndex < cards.length - 1) {
       setCardIndex(cardIndex + 1);
-      // Increment the card color index and loop it back to 0 if it exceeds the number of card colors.
+      // Increment the card color index by 1.
       setCardColorIndex((cardColorIndex + 1) % cardColors.length);
     }
   };
@@ -31,7 +30,7 @@ const LearnAndStudy = () => {
   const handlePrevious = () => {
     if (cardIndex > 0) {
       setCardIndex(cardIndex - 1);
-      // Decrement the card color index and loop it back to the last color if it goes below 0.
+      // Decrement the card color index by 1.
       setCardColorIndex((cardColorIndex - 1 + cardColors.length) % cardColors.length);
     }
   };
@@ -74,61 +73,32 @@ const LearnAndStudy = () => {
               position: "absolute",
             }}
           >
-            <Text style={{ color: currentCardStyle.textColor }}>
+            <Text style={{ color: currentCardStyle.textColor,fontSize:25,fontFamily:"Poppins" }}>
               {cards[cardIndex].title}
             </Text>
-            <Text style={{ color: currentCardStyle.textColor }}>
+            <Text style={{ color: currentCardStyle.textColor,fontFamily:"Poppins",marginHorizontal:20 }}>
               {cards[cardIndex].content}
             </Text>
           </View>
-          <View
-            style={{
-              display: "flex",
-              backgroundColor: cardColors[cardColorIndex].backgroundColor,
-              position: "absolute",
-              justifyContent: "center",
-              alignItems: "center",
-              height: 230,
-              width: 280,
-              borderWidth: 2,
-              borderColor: "blue",
-              borderRadius: 30,
-              zIndex: 9,
-              top: 30,
-            }}
-          />
-          <View
-            style={{
-              display: "flex",
-              backgroundColor: cardColors[cardColorIndex].backgroundColor,
-              position: "absolute",
-              justifyContent: "center",
-              alignItems: "center",
-              height: 230,
-              width: 280,
-              borderWidth: 2,
-              borderColor: "purple",
-              borderRadius: 30,
-              zIndex: 8,
-              top: 60,
-            }}
-          />
-          <View
-            style={{
-              display: "flex",
-              backgroundColor: cardColors[cardColorIndex].backgroundColor,
-              position: "absolute",
-              justifyContent: "center",
-              alignItems: "center",
-              height: 230,
-              width: 280,
-              borderWidth: 2,
-              borderColor: "darkgreen",
-              borderRadius: 30,
-              zIndex: 7,
-              top: 90,
-            }}
-          />
+          {[0, 1, 2].map((index) => (
+            <View
+              key={index}
+              style={{
+                display: "flex",
+                backgroundColor: cardColors[(cardColorIndex + index + 1) % cardColors.length].backgroundColor,
+                position: "absolute",
+                justifyContent: "center",
+                alignItems: "center",
+                height: 230,
+                width: 280,
+                borderWidth: 2,
+                borderColor: cardColors[(cardColorIndex + index + 1) % cardColors.length].backgroundColor,
+                borderRadius: 30,
+                zIndex: 9 - index,
+                top: (index + 1) * 30,
+              }}
+            />
+          ))}
         </View>
 
         <TouchableOpacity

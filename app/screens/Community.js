@@ -9,10 +9,13 @@ import PersonalDataForm from "../components/PersonalDataForm";
 import LearnAndStudy from "./LearnAndStudy";
 import Roomname from "../firebase/Roomname";
 
+import StockMarketMockup from "./Stock";
+import StockSimulator from "./Stock";
+
 const Community = () => {
   return (
     <View>
-      <Roomname />
+     <StockSimulator/>
     </View>
   );
 };

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { View, Text, Image, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
+import { UserContext } from "../App";
 
 const CreditCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const { userData, setUserData } = useContext(UserContext);
 
   const rotation = new Animated.Value(0);
   const rotateY = rotation.interpolate({
@@ -37,7 +39,7 @@ const CreditCard = () => {
       <Text style={styles.number}>9759 2484 5269 6576</Text>
       <Text style={styles.validThru}>VALID THRU</Text>
       <Text style={styles.date}>1 2 / 2 4</Text>
-      <Text style={styles.name}>BRUCE WAYNE</Text>
+      <Text style={styles.name}>{userData.name.toUpperCase()}</Text>
     </View>
   );
 
