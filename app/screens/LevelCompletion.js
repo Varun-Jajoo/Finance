@@ -19,7 +19,7 @@ const LevelCompletion = () => {
   const handleNextLevel = () => {
     setUserData((prev) => ({
       ...prev,
-      points: prev.points + score,
+      points: prev.points + score * 50,
     }));
     const check = userData.progress.bof;
     if (check.quiz) {
@@ -27,7 +27,7 @@ const LevelCompletion = () => {
         ...prev,
         level: parseInt(prev.level) + 1,
       }));
-      navigation.navigate("Home");
+      navigation.navigate("Popup");
     } else {
       Alert.alert(
         "Complete All",

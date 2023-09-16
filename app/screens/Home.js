@@ -18,6 +18,7 @@ import { ModalButton } from "react-native-modals";
 import { ModalTitle } from "react-native-modals";
 import { SlideAnimation } from "react-native-modals";
 import { ModalContent } from "react-native-modals";
+import Expenses from "./Expenses";
 
 const Home = () => {
   const [goals, setGoals] = useState([]);
