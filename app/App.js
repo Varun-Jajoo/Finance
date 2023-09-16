@@ -41,7 +41,7 @@ export default function App() {
       "What is investment banking",
       "What is debit card",
     ],
-    bankForm: false,
+    bankForm: true,
     aadhar: "",
     pan: "",
   });

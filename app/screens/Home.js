@@ -150,15 +150,20 @@ const Home = () => {
                   color: "#1b1b1b",
                   fontSize: 20,
                   textAlign: "left",
+                  fontFamily:"Poppins",
+                  
                 }}
               >
                 Add a Saving Goal
               </Text>
-              <Text style={{ textAlign: "center", color: "#1b1b1b" }}>
+              <Text style={{ textAlign: "justify", color: "#1b1b1b" }}>
                 We will keep a report!
               </Text>
             </View>
           </Pressable>
+          <View style={{borderColor:"lightgrey",borderWidth:2,height:200,width:300,marginTop:80,borderRadius:20,display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <Text style={{color:"lightgrey",fontSize:30,fontFamily:'Poppins'}}>Add Goals to be Dispalyed here!</Text>
+</View>
           <FlatList
             style={{ marginTop: 80 }}
             data={goals}
@@ -169,6 +174,7 @@ const Home = () => {
           />
         </View>
       </View>
+     
       <BottomModal
         swipeThreshold={200}
         onBackDropPress={() => setModalVisible(!modalVisible)}

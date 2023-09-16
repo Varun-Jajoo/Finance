@@ -31,106 +31,13 @@ const Bank = () => {
             <CreditCard />
           </TouchableOpacity>
           <Pressable style={styles.bottomup}></Pressable>
-          {!transfer ? (
-            <Pressable style={styles.rockbottom}>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  
-                  height: 80,
-                  width: "90%",
-                  borderRadius: 20,
-                }}
-              >
-                <View>
-                <TouchableOpacity
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor:"grey",
-                    borderRadius:90,
-                    height:70,
-                    width:70
-                  }}
-                  onPress={() => {
-                    settransfer(true);
-                  }}
-                >
-                  <Image
-                    source={require("../assets/refresh_545661.png")}
-                    style={{ height: 30, width: 30,backgroundColor:"grey",
-                  }}
-                  />
-                </TouchableOpacity>
-                <Text style={{marginLeft:10}}>Transfer</Text>
-
-                </View>
-                <View>
-                <TouchableOpacity
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor:"grey",
-                    borderRadius:90,
-                    height:79,
-                    width:79
-                  }}
-                >
-                  <Image
-                    source={require("../assets/card.png")}
-                    style={{ height: 40, width: 40 }}
-                  />
-                  
-                </TouchableOpacity>
-                <Text style={{marginLeft:15}}>Details</Text>
-                </View>
-                <View>
-                <TouchableOpacity
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor:"grey",
-                    borderRadius:90,
-                    height:75,
-                    width:75
-                  }}
-                >
-                  <Image
-                    source={require("../assets/document_310909.png")}
-                    style={{ height: 30, width: 30 }}
-                  />
-                </TouchableOpacity>
-                <Text style={{marginLeft:10}}>Schemes</Text>
-
-                </View>
+          <View style={styles.rockbottom}>
+          <View style={{display:'flex',flexWrap:'wrap',gap:10,marginTop:0,alignItems:"center",justifyContent:"center"}}><View style={{backgroundColor:"#ecf2fc",height:150,width:170,borderRadius:20}}><Text style={{color:'darkblue',marginLeft:10,marginTop:10}}>Zero Balance Account</Text></View>
+              <View style={{backgroundColor:"#fcdcae",height:150,width:170,borderRadius:20}}><Text style={{color:'brown',marginLeft:10,marginTop:10}}>Schema Doc Generation</Text></View>
+              <View style={{backgroundColor:"#ddffdf",height:150,width:170,borderRadius:20}}><Text style={{color:'darkgreen',marginLeft:10,marginTop:10}}>Personal Saving Account</Text></View>
+              <View style={{backgroundColor:"#ddeded",height:150,width:170,borderRadius:20}}><Text style={{marginLeft:10,marginTop:10}}>Bill Payments</Text></View>
               </View>
-              <Pressable
-                style={{
-                  flexDirection: "row",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  margin: 20,
-                }}
-              >
-                <Text style={{ marginRight: 180 }}>Recharge</Text>
-
-                <Text>Plans</Text>
-              </Pressable>
-              <View
-                style={{ height: 4, width: 300, backgroundColor: "black" }}
-              ></View>
-              <Text style={{ margin: 20 }}>idher likhna kya h?</Text>
-            </Pressable>
-          ) : (
-            <Transfer />
-          )}
+              </View>
         </ScrollView>
       ) : (
         <BankOnboarding />
@@ -156,13 +63,14 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     position: "absolute",
-    top: 280,
+    top: 300,
     height: 50,
-    width: 400,
+    width: "100%",
     backgroundColor: "white",
   },
   rockbottom: {
-    height: 300,
+    zIndex:99,
+    height: 400,
     backgroundColor: "white",
     display: "flex",
     alignItems: "center",
