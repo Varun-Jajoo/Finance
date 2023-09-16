@@ -8,14 +8,14 @@ import FixedDeposit from "./FixedDeposit";
 import PersonalDataForm from "../components/PersonalDataForm";
 import LearnAndStudy from "./LearnAndStudy";
 import Roomname from "../firebase/Roomname";
-
+import MarketMockup from "./Stock";
+import StockMarketApp from "./Stock";
 import StockMarketMockup from "./Stock";
-import StockSimulator from "./Stock";
 
 const Community = () => {
   return (
     <View>
-     <StockSimulator/>
+     <Roomname/>
     </View>
   );
 };
