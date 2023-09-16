@@ -1,30 +1,52 @@
-import { StyleSheet, Text, View ,ScrollView,Pressable,Image,Platform,} from 'react-native'
-import React from 'react'
-import * as Progress from 'react-native-progress'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Pressable,
+  Image,
+  Platform,
+} from "react-native";
+import React from "react";
+import * as Progress from "react-native-progress";
+import { useNavigation } from "@react-navigation/native";
+
 const Utilize = () => {
-    const elevationStyle = Platform.select({
-        ios: {
-          shadowColor: "black",
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.5,
-          shadowRadius: 4,
-        },
-        android: {
-          elevation: 10, // This sets the elevation for Android
-        },
-        default: {
-          // For other platforms, you can set some default styles
-          // or leave it empty.
-        },
-      });
-   
+  const navigation = useNavigation();
+  const elevationStyle = Platform.select({
+    ios: {
+      shadowColor: "black",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.5,
+      shadowRadius: 4,
+    },
+    android: {
+      elevation: 10, // This sets the elevation for Android
+    },
+    default: {
+      // For other platforms, you can set some default styles
+      // or leave it empty.
+    },
+  });
+
   return (
     <ScrollView>
-      <View style={{ display: "flex",height:800, justifyContent: "center",
-    alignItems: "center",gap:25}}>
-       <Image source={require("../assets/family-fishing-cuate.png")} style={{width:450, height:300, margin:10 }}/>
-    
-      <Pressable
+      <View
+        style={{
+          display: "flex",
+          height: 800,
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 25,
+        }}
+      >
+        <Image
+          source={require("../assets/family-fishing-cuate.png")}
+          style={{ width: 450, height: 300, margin: 10 }}
+        />
+
+        <Pressable
+          onPress={() => navigation.navigate("Stock")}
           style={{
             display: "flex",
             flexDirection: "row",
@@ -34,7 +56,7 @@ const Utilize = () => {
             width: "90%",
             backgroundColor: "#fcdcae",
             borderRadius: 45,
-            marginTop:10
+            marginTop: 10,
             // Apply elevationStyle here
           }}
         >
@@ -59,7 +81,7 @@ const Utilize = () => {
                 //fontWeight: 200,
               }}
             >
-              Mutual Funds
+              Stocks
             </Text>
             {/* <Progress.Bar
               borderColor="transparent"
@@ -83,7 +105,7 @@ const Utilize = () => {
             width: "90%",
             backgroundColor: "#fcdcae",
             borderRadius: 45,
-             // Apply elevationStyle here
+            // Apply elevationStyle here
           }}
         >
           {/* <Image
@@ -101,7 +123,7 @@ const Utilize = () => {
             <Text
               style={{
                 color: "black",
-                
+
                 fontSize: 20,
                 marginLeft: 16,
                 textAlign: "left",
@@ -133,7 +155,6 @@ const Utilize = () => {
             width: "90%",
             backgroundColor: "#fcdcae",
             borderRadius: 45,
-            
           }}
         >
           {/* <Image
@@ -151,7 +172,7 @@ const Utilize = () => {
             <Text
               style={{
                 color: "black",
-                
+
                 fontSize: 20,
                 fontFamily: "Poppins",
                 //fontWeight: 200,
@@ -159,16 +180,13 @@ const Utilize = () => {
             >
               Real Estate
             </Text>
-           
           </View>
         </Pressable>
-      
-    </View>
+      </View>
     </ScrollView>
-    
-  )
-}
+  );
+};
 
-export default Utilize
+export default Utilize;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

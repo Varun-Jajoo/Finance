@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
@@ -20,18 +20,18 @@ const screenHeight = Dimensions.get("window").height;
 
 const Dots = ({ activeDotIndex }) => {
   const dots = [1, 2, 3];
-  const {userData,setUserData} = useContext(UserContext);
-  const navigation = useNavigation()
+  const { userData, setUserData } = useContext(UserContext);
+  const navigation = useNavigation();
 
-    useEffect(()=>{
-        if(userData.form){
-            // navigation.navigate('Main')
-            navigation.reset({
-              index: 0,
-              routes: [{ name: "Education" }],
-            });
-        }
-    })
+  useEffect(() => {
+    if (userData.form) {
+      // navigation.navigate('Main')
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Main" }],
+      });
+    }
+  });
 
   return (
     <View style={styles.dotsContainer}>

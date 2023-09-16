@@ -29,6 +29,7 @@ import BankOnboardingSecond from "./screens/BankOnboardingSecond";
 import Utilize from "./components/Utilize";
 import Scheme from "./screens/Scheme";
 import Document from "./screens/Document";
+import Stock from "./screens/Stock";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -246,7 +247,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ headerShown: false }}
@@ -255,7 +256,7 @@ const StackNavigator = () => {
           name="Personal"
           component={PersonalQuestions}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Main"
           component={BottomTabs}
@@ -309,6 +310,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Doc"
           component={Document}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Stock"
+          component={Stock}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
