@@ -40,11 +40,7 @@ const Expenses = () => {
         <Text style={{fontFamily:"Poppins",color:"black"}}>₹2000</Text>
         </View>
       </View>
-    
-
       </View>
-      
-   
     </ScrollView>
   )
 }
