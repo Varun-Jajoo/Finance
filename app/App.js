@@ -26,7 +26,7 @@ export default function App() {
     city: "Rural",
     form: true,
     leftToSpend: 0,
-    points: 0,
+    points: 1000,
     level: "1",
     progress: {
       bof: {
@@ -36,11 +36,7 @@ export default function App() {
         video: false,
       },
     },
-    wrongQuestion: [
-      "What is credit card",
-      "What is investment banking",
-      "What is debit card",
-    ],
+    wrongQuestion: [],
     bankForm: false,
     aadhar: "",
     pan: "",

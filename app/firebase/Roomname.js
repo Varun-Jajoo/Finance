@@ -8,7 +8,7 @@ import {
   ScrollView,
   Platform,
   Pressable,
-  Image
+  Image,
 } from "react-native";
 import Chat from "./Chat";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -54,20 +54,17 @@ const colors = [
   "pink", // Blue Gray
 ];
 const backgroundColors = [
-  
-  '#F5FFFA', // mint
-  
-  '#E6F0FF', // lavender
-  '#D8BFD8', // thistle
-  '#DDA0DD', // plum
-  '#FFB6C1', // pink
-  '#FF7F50', // coral
-  '#AFEEEE', // paleturquoise
-  '#FFDAB9', // peach
-  '#FFE4C4', // bisque
+  "#F5FFFA", // mint
+
+  "#E6F0FF", // lavender
+  "#D8BFD8", // thistle
+  "#DDA0DD", // plum
+  "#FFB6C1", // pink
+  "#FF7F50", // coral
+  "#AFEEEE", // paleturquoise
+  "#FFDAB9", // peach
+  "#FFE4C4", // bisque
 ];
-
-
 
 const Roomname = () => {
   const [room, setRoom] = useState("");
@@ -133,10 +130,10 @@ const Roomname = () => {
   };
 
   return (
-    <ScrollView style={{ height: 900 }}>
+    <ScrollView style={{ height: 900, paddingTop: 30 }}>
       <Text style={{ padding: 20, fontSize: 31, fontWeight: 600 }}>Chat</Text>
       {room ? (
-        <View style={{ backgroundColor: colors[forumTopics.indexOf(room)]  }}>
+        <View style={{ backgroundColor: colors[forumTopics.indexOf(room)] }}>
           <Text>
             <Chat room={room} setRoom={setRoom} />
           </Text>
@@ -154,7 +151,7 @@ const Roomname = () => {
                   marginVertical: 5,
                   borderRadius: 88,
                   marginHorizontal: 5,
-                  opacity:0.8
+                  opacity: 0.8,
                 }}
               >
                 <Text style={{ fontWeight: "bold" }}>#{topic}</Text>
@@ -219,16 +216,23 @@ const Roomname = () => {
                     display: "flex",
                     flexDirection: "row",
                     fontSize: 20,
-                    color:'gray'
+                    color: "gray",
                   }}
                 >
                   +
                 </Text>
-                <Text style={{ fontSize: 20,color:'gray' }}> Tap to add a meet </Text>
+                <Text style={{ fontSize: 20, color: "gray" }}>
+                  {" "}
+                  Tap to add a meet{" "}
+                </Text>
               </Pressable>
             </View>
           </View>
-          <ScrollView style={{ margin: 20 }} horizontal={true}>
+          <ScrollView
+            style={{ margin: 20 }}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
             {meetings ? (
               meetings.map((meet, id) => (
                 <View
@@ -240,17 +244,91 @@ const Roomname = () => {
                     borderRadius: 20,
                     marginRight: 20,
                     display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  
+                    flexDirection: "column",
+                    justifyContent: "center",
                   }}
                 >
-                  <Text style={{fontWeight:700, bottom:10, margin:10}}>{meet.meetingName}</Text>
-                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/profile-round-1342-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text style={{marginRight:'50'}}>Snehal Poptani</Text></View>
-                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/hashtag-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text style={{marginRight:'50'}}>{meet.forums}</Text></View>
-                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/camera-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text>{meet.mode}</Text></View>
-                  <View style={{display:'flex', flexDirection:'row', justifyContent:'flex-start', margin:5}}><Image source={require("../assets/clock-two-svgrepo-com.png")} style={{width:15, height:15,marginRight:10, marginLeft:5 }}/><Text>{meet.date}, {meet.time}</Text></View>
-                  
+                  <Text style={{ fontWeight: 700, bottom: 10, margin: 10 }}>
+                    {meet.meetingName}
+                  </Text>
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      margin: 5,
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/profile-round-1342-svgrepo-com.png")}
+                      style={{
+                        width: 15,
+                        height: 15,
+                        marginRight: 10,
+                        marginLeft: 5,
+                      }}
+                    />
+                    <Text style={{ marginRight: "50" }}>Snehal Poptani</Text>
+                  </View>
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      margin: 5,
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/hashtag-svgrepo-com.png")}
+                      style={{
+                        width: 15,
+                        height: 15,
+                        marginRight: 10,
+                        marginLeft: 5,
+                      }}
+                    />
+                    <Text style={{ marginRight: "50" }}>{meet.forums}</Text>
+                  </View>
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      margin: 5,
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/camera-svgrepo-com.png")}
+                      style={{
+                        width: 15,
+                        height: 15,
+                        marginRight: 10,
+                        marginLeft: 5,
+                      }}
+                    />
+                    <Text>{meet.mode}</Text>
+                  </View>
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      margin: 5,
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/clock-two-svgrepo-com.png")}
+                      style={{
+                        width: 15,
+                        height: 15,
+                        marginRight: 10,
+                        marginLeft: 5,
+                      }}
+                    />
+                    <Text>
+                      {meet.date}, {meet.time}
+                    </Text>
+                  </View>
                 </View>
               ))
             ) : (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -8,9 +8,11 @@ import {
   ScrollView,
   SafeAreaView, // Import ScrollView
 } from "react-native";
+import { UserContext } from "../App";
 
 const App = () => {
   const [balance, setBalance] = useState(10000);
+  const { userData, setUserData } = useContext(UserContext);
   const [selectedStocks, setSelectedStocks] = useState([]);
   const [stocks, setStocks] = useState([
     { id: "AAPL", name: "Apple Inc.", price: 150.25 },
@@ -18,17 +20,14 @@ const App = () => {
     { id: "MSFT", name: "Microsoft Corporation", price: 305.52 },
     { id: "TSLA", name: "Tesla, Inc.", price: 735.72 },
     { id: "AMZN", name: "Amazon.com, Inc.", price: 3349.63 },
-    // Add more stocks here
   ]);
   const [marketTrends, setMarketTrends] = useState([]);
 
-  // Function to generate random data points
   const generateRandomDataPoint = (min, max) => {
     return Math.random() * (max - min) + min;
   };
 
   useEffect(() => {
-    // Simulate market trends every 10 seconds
     const interval = setInterval(() => {
       const updatedStocks = stocks.map((stock) => ({
         ...stock,
@@ -76,11 +75,11 @@ const App = () => {
         )}
       />
       <Text style={styles.marketTrends}>Market Trends:</Text>
-      <FlatList
+      {/* <FlatList
         data={marketTrends}
         keyExtractor={(item, index) => `${index}`}
         renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
-      />
+      /> */}
       <Text style={styles.selectedStocks}>Selected Stocks:</Text>
       <FlatList
         data={selectedStocks}

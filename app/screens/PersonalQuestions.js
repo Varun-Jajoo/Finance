@@ -102,22 +102,22 @@ const PersonalQuestions = () => {
       });
       try {
         console.log(userData);
-        const response = await axios.post(
-          "https://nfcbackend.snehalpoptani.repl.co/add", // Update with your server URL
-          {
-            level: userData.level,
-            name: userData.name,
-            age: userData.age,
-            phn_num: userData.phoneNumber,
-            depend: userData.dependents,
-            area: userData.city,
-            lst_mnth_sav: userData.savings,
-            ann_inc: userData.salary,
-            points: userData.points,
-            progress: userData.progress,
-          }
-        );
-        console.log("Response:", response.data);
+        // const response = await axios.post(
+        //   "https://nfcbackend.snehalpoptani.repl.co/add", // Update with your server URL
+        //   {
+        //     level: userData.level,
+        //     name: userData.name,
+        //     age: userData.age,
+        //     phn_num: userData.phoneNumber,
+        //     depend: userData.dependents,
+        //     area: userData.city,
+        //     lst_mnth_sav: userData.savings,
+        //     ann_inc: userData.salary,
+        //     points: userData.points,
+        //     progress: userData.progress,
+        //   }
+        // );
+        // console.log("Response:", response.data);
       } catch (error) {
         console.error("Error:", error);
       }
