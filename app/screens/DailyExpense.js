@@ -3,102 +3,433 @@ import {
   Text,
   View,
   SafeAreaView,
-  ScrollView,
-  Pressable,
   Dimensions,
-  Image,
-  TextInput,
-  Platform,
+  Pressable,
 } from "react-native";
-import React, { useContext, useState } from "react";
-import { UserContext } from "../App";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
+// import { useUserContext } from "../UserContext";
+import axios from "axios";
+import { EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
+
+
 const DailyExpense = () => {
-  const { userData, setUserData } = useContext(UserContext);
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [data, setData] = useState();
+  const { user, setUser } = useUserContext();
+  console.log("data" + user.id, user.data);
+  const [selectedTab, setSelectedTab] = useState(true);
+  const [recommend, setRecommend] = useState(true);
   const navigation = useNavigation();
-  const [inputValues, setInputValues] = useState(
-    userData.spend.map((item) => String(item.spent))
-  );
-  const handleChange = (index, amount) => {
-    const updatedInputValues = [...inputValues];
-    updatedInputValues[index] = amount;
-    setInputValues(updatedInputValues);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       let headersList = {
+  //         Accept: "/",
+  //         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  //         "Content-Type": "application/x-www-form-urlencoded",
+  //       };
+  //       let reqOptions = {
+  //         url: `https://log-b.vercel.app/api/user-data/?user_id=${user.id}`,
+  //         method: "GET",
+  //         headers: headersList,
+  //       };
+
+  //       let response = await axios.request(reqOptions);
+  //       console.log(response.data);
+  //       setUser({ ...user, data: response.data });
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  const options = {
+    method: "POST",
+    url: "https://api.edenai.run/v2/text/generation",
+    headers: {
+      authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2E0ODk0MjktZGIwMS00YzMyLTgwNmYtZmI3YzgyMzkzMWYzIiwidHlwZSI6ImFwaV90b2tlbiJ9.zb2xQc9BJybAGp0EX3fDuDjtvTB-_Uqe5NZ16wDW9Hg",
+    },
+    data: {
+      providers: "openai",
+      text: 
+         `give recommendation if i am 50-60 yrs old and i drink 1 liter of water and sleep 6 hrs and mood is happy in points of 1-2 lines`,
+       
+      temperature: 0.3,
+      max_tokens: 50,
+    },
   };
-  const handleContinuePress = () => {
-    const updatedSpend = inputValues.map((amount) => ({
-      spent: amount || 0,
-    }));
 
-    const totalSpent = updatedSpend.reduce(
-      (total, item) => total + item.spent,
-      0
-    );
-
-    const leftToSpend = userData.salary - userData.savings - totalSpent;
-
-    setUserData((prevUserData) => ({
-      ...prevUserData,
-      spend: updatedSpend,
-      leftToSpend: leftToSpend,
-    }));
-    navigation.goBack();
+  const handleQuestionSubmit = async () => {
+    axios
+    .request(options)
+    .then((response) => {
+      console.log(response.data);
+      setData(response.data);
+      setAnswer(response.data.openai.generated_text)
+      // setRecommend(false)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
+  const handlesubmit =()=>{
+    navigation.navigate("Map")
+  }
   return (
-    <SafeAreaView
-      style={{
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: Dimensions.get("window").height,
-        backgroundColor: "white",
-      }}
-    >
-      <Text
-        style={{ fontSize: 25, color: "grey", fontWeight: 700, marginTop: 30 }}
+    <SafeAreaView style={{ backgroundColor: "white" }}>
+      <View
+        style={{
+          paddingTop:30,
+          height: "100%",
+          flexDirection: "column",
+        }}
       >
-        Add your daily expenses
-      </Text>
-      <ScrollView>
-        {userData.spend.map((item, i) => {
-          return (
-            <Pressable
+      {/* <Header style={{position:"absolute",top:0,left:0,bottom:0,right:0,zIndex:99}}/> */}
+
+        <View
+          style={{
+            height: "51%",
+            width: "100%",
+            backgroundColor: "#b7d9e2",
+            borderBottomLeftRadius: 40,
+            borderBottomRightRadius: 40,
+            position: "relative",
+            bottom: 60,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              paddingTop: 70,
+              justifyContent: "space-between",
+              paddingHorizontal: 10,
+            }}
+          >
+            <View
               style={{
                 flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 20,
-                marginTop: 20,
+                justifyContent: "space-around",
                 gap: 10,
+                borderRadius: 99,
+                backgroundColor: "white",
+                alignItems: "center",
+                padding: 10,
               }}
             >
-              <Pressable style={styles.card}>
-                <Image
-                  source={require("../assets/3d-render-hand-put-golden-coin-into-piggy-bank.jpg")}
-                  style={{ height: 70, width: 70 }}
-                />
-                <Text style={{ fontFamily: "Poppins", fontSize: 13 }}>
-                  {item.title}
-                </Text>
+              <Pressable
+                onPress={() => setSelectedTab(true)}
+                style={[
+                  styles.tabButton,
+                  {
+                    borderBottomWidth: selectedTab ? 2 : 0,
+                    borderBottomColor: "#5c93aa",
+                    height: 22,
+                  },
+                ]}
+              >
+                <Text style={{ paddingBottom: 5 }}>Days</Text>
               </Pressable>
-              <TextInput
-                style={styles.input}
-                value={inputValues[i]}
-                onChangeText={(text) => handleChange(i, text)}
-                placeholder="Enter Amount"
-                keyboardType="numeric"
-                onBlur={() => handleChange(i, inputValues[i])}
-              />
-            </Pressable>
-          );
-        })}
-      </ScrollView>
-      <Pressable
-        style={styles.continueButton}
-        onPress={() => handleContinuePress()}
-      >
-        <Text style={styles.continueButtonText}>Continue</Text>
-      </Pressable>
+              <Pressable
+                onPress={() => setSelectedTab(false)}
+                style={[
+                  styles.tabButton,
+                  {
+                    borderBottomWidth: !selectedTab ? 2 : 0,
+                    borderBottomColor: "#5c93aa",
+                    height: 22,
+                  },
+                ]}
+              >
+                <Text style={{ paddingBottom: 5 }}>Weeks</Text>
+              </Pressable>
+            </View>
+            <View
+              style={{
+                borderRadius: 99,
+                backgroundColor: "#5c93aa",
+                width: 40,
+                height: 40,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <EvilIcons name="location" size={30} color="#f0fcfe" onPress={handlesubmit}/>
+            </View>
+          </View>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              paddingTop: 20,
+            }}
+          >
+            <AnimatedCircularProgress
+              size={160}
+              rotation={0}
+              width={15}
+              fill={37}
+              tintColor="#5c93aa"
+              onAnimationComplete={() => console.log("onAnimationComplete")}
+              backgroundColor="#f0fcfe"
+            />
+          </View>
+          <Text
+            style={{
+              textAlign: "center",
+              paddingTop: 20,
+              color: "#5c93aa",
+              fontSize: 20,
+              fontWeight: 700,
+            }}
+          >
+            17% increase from yesterday
+          </Text>
+        </View>
+
+        <View
+          style={{
+            width: "100%",
+            backgroundColor: "white",
+            position: "relative",
+            top: -40,
+            paddingHorizontal: 10,
+            flexDirection: "row",
+            gap: 10,
+            justifyContent: "center",
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <View
+              style={{
+                height: 110,
+                backgroundColor: "lightblue",
+                borderRadius: 15,
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: 10,
+                }}
+              >
+                <Text style={{ fontSize: 19 }}>Water</Text>
+                <Pressable
+                  style={{
+                    height: 25,
+                    width: 25,
+                    backgroundColor: "black",
+                    borderRadius: 20,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 19,
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    +
+                  </Text>
+                </Pressable>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  paddingHorizontal: 10,
+                  paddingVertical: 15,
+                  alignItems: "baseline",
+                }}
+              >
+                <Text style={{ fontSize: 35 }}>1</Text>
+                <Text> of 2 liters</Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={{ flex: 1 }}>
+            <View
+              style={{
+                height: 110,
+                backgroundColor: "pink",
+                borderRadius: 15,
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: 10,
+                }}
+              >
+                <Text style={{ fontSize: 19 }}>Sleep</Text>
+                <Pressable
+                  style={{
+                    height: 25,
+                    width: 25,
+                    backgroundColor: "black",
+                    borderRadius: 20,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 19,
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    +
+                  </Text>
+                </Pressable>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  paddingHorizontal: 10,
+                  paddingVertical: 15,
+                  alignItems: "baseline",
+                }}
+              >
+                <Text style={{ fontSize: 35 }}>6</Text>
+                <Text> of 8 Hours</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        <View
+          style={{
+            marginHorizontal: 10,
+            height: 230,
+            backgroundColor: "#F1F1F1",
+            borderRadius: 20,
+            padding: 10,
+            marginTop: -20,
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: 600 }}>
+            Recommendations for you
+          </Text>
+          {recommend ? (
+            <>
+              <Pressable onPress={handleQuestionSubmit} >
+                <Text>Recommend</Text>
+              </Pressable>
+              <Text>Click above to get AI personalized
+                {answer}
+              </Text>
+            </>
+          ) : (
+            <>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  paddingTop: 10,
+                  gap: 10,
+                }}
+              >
+                <View
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 10,
+                    backgroundColor: "#85bcc7",
+                  }}
+                ></View>
+                <View
+                  style={{
+                    flexDirection: "column",
+                    gap: 1,
+                  }}
+                >
+                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
+                  <Text>Rich in calcium</Text>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  paddingTop: 10,
+                  gap: 10,
+                }}
+              >
+                <View
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 10,
+                    backgroundColor: "#85bcc7",
+                  }}
+                ></View>
+                <View
+                  style={{
+                    flexDirection: "column",
+                    gap: 1,
+                  }}
+                >
+                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
+                  <Text>Rich in calcium</Text>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  paddingTop: 10,
+                  gap: 10,
+                }}
+              >
+                <View
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 10,
+                    backgroundColor: "#85bcc7",
+                  }}
+                ></View>
+                <View
+                  style={{
+                    flexDirection: "column",
+                    gap: 1,
+                  }}
+                >
+                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
+                  <Text>Rich in calcium</Text>
+                </View>
+              </View>
+            </>
+          )}
+        </View>
+        <Text
+          style={{
+            textAlign: "center",
+            position: "absolute",
+            top: 127,
+            right: "37.5%",
+            fontSize: 80,
+            color: "#5c93aa",
+            fontWeight: "bold",
+          }}
+        >
+          37
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };
@@ -106,68 +437,7 @@ const DailyExpense = () => {
 export default DailyExpense;
 
 const styles = StyleSheet.create({
-  card: {
-    width: Dimensions.get("window").width * 0.23,
-    height: 100,
-    backgroundColor: "white",
-    margin: 10,
-    justifyContent: "center",
+  tabButton: {
     alignItems: "center",
-    ...Platform.select({
-      ios: {
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 5,
-          height: 5,
-        },
-        shadowOpacity: 0.35,
-        shadowRadius: 3.84,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
-    borderRadius: 15,
-    flexDirection: "column",
-  },
-  input: {
-    width: 200,
-    height: 50,
-    borderColor: "lightgray",
-    borderRadius: 10,
-    marginTop: 5,
-    paddingLeft: 10,
-    marginBottom: 20,
-    backgroundColor: "white",
-    ...Platform.select({
-      ios: {
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 2,
-          height: 7,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-      },
-      android: {
-        elevation: 2,
-      },
-    }),
-  },
-  continueButton: {
-    backgroundColor: "black",
-    width: 300,
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 30,
-    marginTop: 20,
-    zIndex: -1,
-  },
-  continueButtonText: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 25,
-    fontFamily: "Poppins",
   },
 });
