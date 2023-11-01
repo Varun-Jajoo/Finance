@@ -12,7 +12,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import Bank from "./screens/Bank";
 import Education from "./screens/Education";
-import Expenses from "./screens/Expenses";
 import Community from "./screens/Community";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./screens/LoginScreen";
@@ -254,12 +253,12 @@ const StackNavigator = () => {
           component={LoginScreen}
           options={{ headerShown: false }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Zero"
           component={ZeroBalanceAccount}
           options={{ headerShown: false }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Savings"
           component={SavingsAccount}
           options={{ headerShown: false }}

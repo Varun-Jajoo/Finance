@@ -199,6 +199,7 @@ const Expenses = () => {
               >
                 <Text style={{ fontSize: 19 }}>Expenditure</Text>
                 <Pressable
+                  onPress={() => setModalVisible(true)}
                   style={{
                     height: 25,
                     width: 25,
@@ -334,6 +335,27 @@ const Expenses = () => {
           37
         </Text>
       </View>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          console.log("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -343,5 +365,46 @@ export default Expenses;
 const styles = StyleSheet.create({
   tabButton: {
     alignItems: "center",
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
 });
