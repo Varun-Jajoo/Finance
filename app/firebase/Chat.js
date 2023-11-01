@@ -78,15 +78,15 @@ const Chat = (props) => {
         inverted={true} // Render messages in reverse order
       />
       <Pressable style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center' }}>
-        <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingBottom: 10, marginTop: 10 }}>
+        <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingBottom: 10, marginTop: 10 ,marginLeft:5}}>
           <TextInput
-            style={{ backgroundColor: '#fff', padding: 10, width: '87%' }}
+            style={{ backgroundColor: '#fff', padding: 10, width:400,marginBottom:40, position:"relative" }}
             onChangeText={(text) => setText(text)}
             value={text}
             placeholder="Type your message here"
           />
-          <TouchableOpacity onPress={handleSubmit}>
-            <Text style={{ backgroundColor: '#000', color: '#fff', padding: 10, width: 70, marginLeft: -20 }}>Send</Text>
+          <TouchableOpacity onPress={handleSubmit} style={{position:"absolute",top:0,right:0}}>
+            <Text style={{ backgroundColor: '#000', color: '#fff', padding: 14.5, width: 70 }}>Send</Text>
           </TouchableOpacity>
         </View>
       </Pressable>
