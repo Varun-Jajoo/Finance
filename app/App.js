@@ -37,7 +37,7 @@ export default function App() {
       },
     },
     wrongQuestion: [],
-    bankForm: false,
+    bankForm: true,
     aadhar: "",
     pan: "",
   });

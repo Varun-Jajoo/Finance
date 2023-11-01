@@ -70,7 +70,7 @@ const Scheme = () => {
   return (
     <SafeAreaView style={{}}>
       {!clicked ? (
-        <>
+        <View style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
           <Text
             style={{
               paddingHorizontal: 20,
@@ -106,7 +106,7 @@ const Scheme = () => {
               <Text style={styles.continueButtonText}>Continue</Text>
             </Pressable>
           </View>
-        </>
+        </View>
       ) : (
         <>
           <ScrollView

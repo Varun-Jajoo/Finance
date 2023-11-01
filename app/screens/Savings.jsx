@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Pressable, ScrollView, ImageBackground, Platform } from "react-native";
 
-const SavingsAccount = () => {
+const SavingsAccount = ({ navigation }) => {
   return (
     <SafeAreaView style={{ paddingTop: Platform.OS === 'android' ? 40 : 0, justifyContent: "center", alignItems: "center" }}>
       <ScrollView style={{ display: "flex" }}>
@@ -24,93 +24,87 @@ const SavingsAccount = () => {
                 display: "flex",
                 flexWrap: "wrap",
                 gap: 10,
-                marginTop: 20,
+                marginTop: 0,
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <View
-                style={{
-                  backgroundColor: "#A9CDD4", // Light Blue
-                  height: 200,
-                  width: 190,
-                  borderRadius: 20,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  opacity:0.7
-                }}
-              >
-                <Image source={require("../assets/savings.png")} style={{ width: 90, height: 90, marginVertical: 10 }} />
-                <Text style={{ color: "darkblue", marginLeft: 10, fontWeight: "600",opacity:1 }}>
-                  Competitive Interest Rates
-                </Text>
-                <Text style={{ color: "darkblue", margin: 10, fontSize: 13 }}>
-                  Earn interest on your savings balance.
-                </Text>
-              </View>
               <Pressable
+                onPress={() => navigation.navigate("Zero")}
                 style={{
-                  backgroundColor: "#E3A3B7", // Light Red
+                  backgroundColor: "#FFB6C1", // Pastel pink
                   height: 200,
-                  width: 190,
+                  width: 170,
                   borderRadius: 20,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  opacity:0.7
                 }}
               >
-                <Image source={require("../assets/doc.png")} style={{ width: 90, height: 90,marginBottom:10, marginVertical: 10 }} />
-                <Text style={{ color: "maroon", marginLeft: 10, fontWeight: "600" }}>
+                <Image source={require("../assets/bank-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Text
+                  style={{ color: "darkblue", marginLeft: 10, fontWeight: "600" }}
+                >
+                  Savings Bank Account
+                </Text>
+                <Text
+                  style={{ color: "darkblue", margin: 10, opacity: 0.5, fontSize: 12 }}
+                >
+                  Open a Savings Bank Account and start saving today
+                </Text>
+              </Pressable>
+              <Pressable
+                onPress={() => navigation.navigate("Scheme")}
+                style={{
+                  backgroundColor: "#FFD700", // Pastel yellow
+                  height: 200,
+                  width: 170,
+                  borderRadius: 20,
+                }}
+              >
+                <Image source={require("../assets/doc.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Text style={{ color: "brown", marginLeft: 10, fontWeight: "600" }}>
                   Online Application
                 </Text>
-                <Text style={{ color: "maroon", margin: 10, fontSize: 13 }}>
-                  Apply for a savings account online from anywhere.
+                <Text
+                  style={{ color: "brown", margin: 10, opacity: 0.5, fontSize: 12 }}
+                >
+                  Online application for Account Opening
+                </Text>
+              </Pressable>
+              <Pressable
+                onPress={() => navigation.navigate("Savings")}
+                style={{
+                  backgroundColor: "#98FB98", // Pastel green
+                  height: 200,
+                  width: 170,
+                  borderRadius: 20,
+                }}
+              >
+                <Image source={require("../assets/money-check-dollar-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Text
+                  style={{ color: "darkgreen", marginLeft: 10, fontWeight: "600" }}
+                >
+                  Mobile Banking
+                </Text>
+                <Text
+                  style={{ color: "darkgreen", margin: 10, opacity: 0.5, fontSize: 12 }}
+                >
+                  Access mobile banking services with your account
                 </Text>
               </Pressable>
               <View
                 style={{
-                  backgroundColor: "#A6D7B6", // Light Green
+                  backgroundColor: "#AFEEEE", // Pastel blue
                   height: 200,
-                  width: 190,
+                  width: 170,
                   borderRadius: 20,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  opacity:0.7
                 }}
               >
-                <Image source={require("../assets/mobile.png")} style={{ width: 100, height: 100, marginVertical: 10 }} />
-                <Text style={{ color: "darkgreen", fontWeight: "600" }}>
-                  Mobile Banking
+                <Image source={require("../assets/bill-dollar-left-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Text style={{ marginLeft: 10, fontWeight: "600" }}>
+                  Account Services
                 </Text>
-                <Text style={{ color: "darkgreen", margin: 10, fontSize: 13 }}>
-                  Access your savings account with a mobile app.
-                </Text>
-              </View>
-              <View
-                style={{
-                  backgroundColor: "#FFC8A6", // Light Orange
-                  height: 200,
-                  width: 190,
-                  borderRadius: 20,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  opacity:0.7
-                }}
-              >
-                <Image source={require("../assets/piggy.png")} style={{ width: 100, height: 100, marginVertical: 10 }} />
-                <Text style={{ color: "brown", fontWeight: "600" }}>
-                  Savings Goals
-                </Text>
-                <Text style={{ color: "brown", margin: 10, fontSize: 13 }}>
-                  Plan and track your savings goals  effortlessly
+                <Text
+                  style={{ margin: 10, opacity: 0.5, fontSize: 12 }}>
+                   Explore various account services for your Savings Bank Account
                 </Text>
               </View>
             </View>

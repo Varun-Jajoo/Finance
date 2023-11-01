@@ -86,7 +86,7 @@ const Chat = (props) => {
             placeholder="Type your message here"
           />
           <TouchableOpacity onPress={handleSubmit} style={{position:"absolute",top:0,right:0}}>
-            <Text style={{ backgroundColor: '#000', color: '#fff', padding: 14.5, width: 70 }}>Send</Text>
+            <Text style={{ backgroundColor: '#000', color: '#fff', padding: 13, width: 70 }}>Send</Text>
           </TouchableOpacity>
         </View>
       </Pressable>
