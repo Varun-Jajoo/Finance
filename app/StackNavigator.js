@@ -30,6 +30,8 @@ import Utilize from "./components/Utilize";
 import Scheme from "./screens/Scheme";
 import Document from "./screens/Document";
 import Stock from "./screens/Stock";
+import ZeroBalanceAccount from "./screens/ZeroBalance";
+import SavingsAccount from "./screens/Savings";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -250,6 +252,16 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Zero"
+          component={ZeroBalanceAccount}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Savings"
+          component={SavingsAccount}
           options={{ headerShown: false }}
         />
         <Stack.Screen

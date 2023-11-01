@@ -43,7 +43,9 @@ const Bank = () => {
                 justifyContent: "center",
               }}
             >
-              <View
+              <Pressable
+              onPress={()=> navigation.navigate("Zero")}
+              
                 style={{
                   backgroundColor: "#ecf2fc",
                   height: 200,
@@ -63,7 +65,7 @@ const Bank = () => {
                 >
                   Open an Account with no minimum balance
                 </Text>
-              </View>
+              </Pressable>
               <Pressable
               onPress={()=> navigation.navigate("Scheme")}
                 style={{
@@ -83,13 +85,16 @@ const Bank = () => {
                   Hassle-free application for eligible Yojnas
                 </Text>
               </Pressable>
-              <View
+              <Pressable
+              onPress={()=> navigation.navigate("Savings")}
                 style={{
                   backgroundColor: "#ddffdf",
                   height: 200,
                   width: 170,
                   borderRadius: 20,
                 }}
+              
+
               >
                 <Image source={require("../assets/money-check-dollar-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
                 <Text
@@ -102,7 +107,7 @@ const Bank = () => {
                 >
                   Open a Savings Account online
                 </Text>
-              </View>
+              </Pressable>
               <View
                 style={{
                   backgroundColor: "#ddeded",
@@ -113,7 +118,7 @@ const Bank = () => {
               >
                 <Image source={require("../assets/bill-dollar-left-svgrepo-com.png")} style={{width:40, height:40, margin:10 }}/>
                 <Text style={{ marginLeft: 10, fontWeight:600}}>
-                  Bill Payments
+                  Account Tracker
                 </Text>
                 <Text
                   style={{ margin: 10,opacity:0.5, fontSize:12 }}>

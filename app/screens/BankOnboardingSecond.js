@@ -36,7 +36,7 @@ const BankOnboardingSecond = () => {
   return (
     <SafeAreaView>
       <Text style={{ fontSize: 27, fontWeight: 600, padding: 20 }}>
-        Select The banks
+        Select the Banks
       </Text>
       <View style={{ alignItems: "center" }}>
         <View style={styles.dropDownContainer}>
