@@ -268,7 +268,7 @@ const Roomname = () => {
                         marginLeft: 5,
                       }}
                     />
-                    <Text style={{ marginRight: "50" }}>Snehal Poptani</Text>
+                    <Text style={{ marginRight: "50" }}>Shreyans Jain</Text>
                   </View>
                   <View
                     style={{
