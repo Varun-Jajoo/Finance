@@ -7,6 +7,7 @@ import {
   Pressable,
   Platform,
   Modal,
+  TextInput,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState, useContext } from "react";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
@@ -21,6 +22,7 @@ const Expenses = () => {
   const [selectedTab, setSelectedTab] = useState(true);
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+  const [expend, setExpend] = useState(0);
 
   const options = {
     method: "POST",
@@ -147,7 +149,7 @@ const Expenses = () => {
               size={160}
               rotation={0}
               width={15}
-              fill={37}
+              fill={(userData.level * 100) / 5}
               tintColor="#5c93aa"
               onAnimationComplete={() => console.log("onAnimationComplete")}
               backgroundColor="#f0fcfe"
@@ -162,7 +164,7 @@ const Expenses = () => {
               fontWeight: 700,
             }}
           >
-            17% increase from yesterday
+            Keep it up you can do it !!
           </Text>
         </View>
 
@@ -226,7 +228,7 @@ const Expenses = () => {
                   gap: 3,
                 }}
               >
-                <Text style={{ fontSize: 35 }}>₹ {totalSpent}</Text>
+                <Text style={{ fontSize: 35 }}>₹ {totalSpent + expend}</Text>
                 <Text> of {userData.salary - userData.savings} Rupees</Text>
               </View>
             </View>
@@ -326,13 +328,13 @@ const Expenses = () => {
             textAlign: "center",
             position: "absolute",
             top: Platform.OS === "android" ? 127 : 105,
-            right: "37.5%",
+            right: "45%",
             fontSize: 80,
             color: "#5c93aa",
             fontWeight: "bold",
           }}
         >
-          37
+          {userData.level}
         </Text>
       </View>
       <Modal
@@ -346,12 +348,17 @@ const Expenses = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>Enter Your Todays Expenditure!</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Expenditure in rupees"
+              onChangeText={(text) => setExpend(parseInt(text, 10))}
+            />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Save</Text>
             </Pressable>
           </View>
         </View>
@@ -367,10 +374,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   centeredView: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    flex: 1,
   },
   modalView: {
     margin: 20,
@@ -386,6 +393,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    width: 300,
   },
   button: {
     borderRadius: 20,
@@ -406,5 +414,29 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+  },
+  input: {
+    width: 200,
+    height: 50,
+    borderColor: "lightgray",
+    borderRadius: 10,
+    marginTop: 5,
+    paddingLeft: 10,
+    marginBottom: 20,
+    backgroundColor: "white",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 2,
+          height: 7,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
 });
