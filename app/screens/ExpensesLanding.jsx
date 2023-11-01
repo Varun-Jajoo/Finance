@@ -5,50 +5,22 @@ import {
   SafeAreaView,
   Dimensions,
   Pressable,
+  Platform,
+  Modal,
 } from "react-native";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState, useContext } from "react";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
-// import { useUserContext } from "../UserContext";
 import axios from "axios";
-import { EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
-
+import { Octicons } from "@expo/vector-icons";
+import { UserContext } from "../App";
 
 const Expenses = () => {
-  const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [data, setData] = useState();
-  // const { user, setUser } = useUserContext();
-  // console.log("data" + user.id, user.data);
+  const [answer, setAnswer] = useState("");
+  const { userData, setUserData } = useContext(UserContext);
   const [selectedTab, setSelectedTab] = useState(true);
-  const [recommend, setRecommend] = useState(true);
   const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       let headersList = {
-  //         Accept: "/",
-  //         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-  //         "Content-Type": "application/x-www-form-urlencoded",
-  //       };
-  //       let reqOptions = {
-  //         url: `https://log-b.vercel.app/api/user-data/?user_id=${user.id}`,
-  //         method: "GET",
-  //         headers: headersList,
-  //       };
-
-  //       let response = await axios.request(reqOptions);
-  //       console.log(response.data);
-  //       setUser({ ...user, data: response.data });
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const options = {
     method: "POST",
@@ -59,40 +31,40 @@ const Expenses = () => {
     },
     data: {
       providers: "openai",
-      text: 
-         `give recommendation if i am 50-60 yrs old and i drink 1 liter of water and sleep 6 hrs and mood is happy in points of 1-2 lines`,
-       
+      text: `give recommendation, if i am ${userData.age} years old and i have ${userData.dependents} in my family and live in a ${userData.city} area some financial tips of savings, give me 2 points of 1 line `,
+
       temperature: 0.3,
-      max_tokens: 50,
+      max_tokens: 75,
     },
   };
+  const totalSpent = userData.spend.reduce((accumulator, item) => {
+    return accumulator + item.spent;
+  }, 0);
 
   const handleQuestionSubmit = async () => {
     axios
-    .request(options)
-    .then((response) => {
-      console.log(response.data);
-      setData(response.data);
-      setAnswer(response.data.openai.generated_text)
-      // setRecommend(false)
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .request(options)
+      .then((response) => {
+        console.log(response.data.openai.generated_text);
+        setAnswer(response.data.openai.generated_text);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-  const handlesubmit =()=>{
-    navigation.navigate("Map")
-  }
+  const handlesubmit = () => {
+    navigation.navigate("Map");
+  };
   return (
     <SafeAreaView style={{ backgroundColor: "white" }}>
       <View
         style={{
-          paddingTop:30,
+          paddingTop: Platform.OS === "android" ? 30 : 0,
           height: "100%",
           flexDirection: "column",
         }}
       >
-      {/* <Header style={{position:"absolute",top:0,left:0,bottom:0,right:0,zIndex:99}}/> */}
+        {/* <Header style={{position:"absolute",top:0,left:0,bottom:0,right:0,zIndex:99}}/> */}
 
         <View
           style={{
@@ -161,7 +133,7 @@ const Expenses = () => {
                 alignItems: "center",
               }}
             >
-              <EvilIcons name="location" size={30} color="#f0fcfe" onPress={handlesubmit}/>
+              <Octicons name="graph" size={22} color="#f0fcfe" />
             </View>
           </View>
           <View
@@ -221,10 +193,11 @@ const Expenses = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: 10,
+                  paddingHorizontal: 10,
+                  paddingTop: 10,
                 }}
               >
-                <Text style={{ fontSize: 19 }}>Water</Text>
+                <Text style={{ fontSize: 19 }}>Expenditure</Text>
                 <Pressable
                   style={{
                     height: 25,
@@ -246,14 +219,14 @@ const Expenses = () => {
               </View>
               <View
                 style={{
-                  flexDirection: "row",
+                  flexDirection: "coloumn",
                   paddingHorizontal: 10,
-                  paddingVertical: 15,
-                  alignItems: "baseline",
+                  paddingBottom: 12,
+                  gap: 3,
                 }}
               >
-                <Text style={{ fontSize: 35 }}>1</Text>
-                <Text> of 2 liters</Text>
+                <Text style={{ fontSize: 35 }}>₹ {totalSpent}</Text>
+                <Text> of {userData.salary - userData.savings} Rupees</Text>
               </View>
             </View>
           </View>
@@ -273,10 +246,11 @@ const Expenses = () => {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: 10,
+                  paddingHorizontal: 10,
+                  paddingTop: 10,
                 }}
               >
-                <Text style={{ fontSize: 19 }}>Sleep</Text>
+                <Text style={{ fontSize: 19 }}>Savings</Text>
                 <Pressable
                   style={{
                     height: 25,
@@ -298,14 +272,14 @@ const Expenses = () => {
               </View>
               <View
                 style={{
-                  flexDirection: "row",
+                  flexDirection: "coloumn",
                   paddingHorizontal: 10,
-                  paddingVertical: 15,
-                  alignItems: "baseline",
+                  paddingBottom: 12,
+                  gap: 3,
                 }}
               >
-                <Text style={{ fontSize: 35 }}>6</Text>
-                <Text> of 8 Hours</Text>
+                <Text style={{ fontSize: 35 }}>₹ {userData.savings}</Text>
+                <Text> of {userData.salary} Rupees</Text>
               </View>
             </View>
           </View>
@@ -314,113 +288,43 @@ const Expenses = () => {
         <View
           style={{
             marginHorizontal: 10,
-            height: 230,
+            height: 250,
             backgroundColor: "#F1F1F1",
             borderRadius: 20,
-            padding: 10,
+            paddingHorizontal: 10,
             marginTop: -20,
+            alignItems: "center",
+            paddingVertical: 5,
           }}
         >
           <Text style={{ fontSize: 20, fontWeight: 600 }}>
             Recommendations for you
           </Text>
-          {recommend ? (
-            <>
-              <Pressable onPress={handleQuestionSubmit} >
-                <Text>Recommend</Text>
-              </Pressable>
-              <Text>Click above to get AI personalized
-                {answer}
-              </Text>
-            </>
-          ) : (
-            <>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  paddingTop: 10,
-                  gap: 10,
-                }}
-              >
-                <View
-                  style={{
-                    height: 50,
-                    width: 50,
-                    borderRadius: 10,
-                    backgroundColor: "#85bcc7",
-                  }}
-                ></View>
-                <View
-                  style={{
-                    flexDirection: "column",
-                    gap: 1,
-                  }}
-                >
-                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
-                  <Text>Rich in calcium</Text>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  paddingTop: 10,
-                  gap: 10,
-                }}
-              >
-                <View
-                  style={{
-                    height: 50,
-                    width: 50,
-                    borderRadius: 10,
-                    backgroundColor: "#85bcc7",
-                  }}
-                ></View>
-                <View
-                  style={{
-                    flexDirection: "column",
-                    gap: 1,
-                  }}
-                >
-                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
-                  <Text>Rich in calcium</Text>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  paddingTop: 10,
-                  gap: 10,
-                }}
-              >
-                <View
-                  style={{
-                    height: 50,
-                    width: 50,
-                    borderRadius: 10,
-                    backgroundColor: "#85bcc7",
-                  }}
-                ></View>
-                <View
-                  style={{
-                    flexDirection: "column",
-                    gap: 1,
-                  }}
-                >
-                  <Text style={{ fontSize: 17, fontWeight: 700 }}>Milk</Text>
-                  <Text>Rich in calcium</Text>
-                </View>
-              </View>
-            </>
-          )}
+
+          <Pressable
+            style={{
+              paddingHorizontal: 10,
+              paddingVertical: 10,
+              backgroundColor: "black",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 99,
+              marginTop: 10,
+            }}
+            onPress={handleQuestionSubmit}
+          >
+            <Text style={{ color: "white" }}>Recommend</Text>
+          </Pressable>
+
+          <View style={{ padding: 10 }}>
+            <Text>{answer ? answer.trim() : "Press The Button"}</Text>
+          </View>
         </View>
         <Text
           style={{
             textAlign: "center",
             position: "absolute",
-            top: 127,
+            top: Platform.OS === "android" ? 127 : 105,
             right: "37.5%",
             fontSize: 80,
             color: "#5c93aa",
