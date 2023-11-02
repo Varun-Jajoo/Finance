@@ -38,7 +38,7 @@ const ZeroBalanceAccount = () => {
                   borderRadius: 20,
                 }}
               >
-                <Image source={require("../assets/bank-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Image source={require("../assets/piggy.png")} style={{ width: 40, height: 40, margin: 10 }} />
                 <Text
                   style={{ color: "darkblue", marginLeft: 10, fontWeight: "600" }}
                 >
@@ -78,7 +78,7 @@ const ZeroBalanceAccount = () => {
                   borderRadius: 20,
                 }}
               >
-                <Image source={require("../assets/money-check-dollar-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Image source={require("../assets/mobile.png")} style={{ width: 40, height: 40, margin: 10 }} />
                 <Text
                   style={{ color: "darkgreen", marginLeft: 10, fontWeight: "600" }}
                 >
@@ -98,7 +98,7 @@ const ZeroBalanceAccount = () => {
                   borderRadius: 20,
                 }}
               >
-                <Image source={require("../assets/bill-dollar-left-svgrepo-com.png")} style={{ width: 40, height: 40, margin: 10 }} />
+                <Image source={require("../assets/bank.png")} style={{ width: 40, height: 40, margin:10 }} />
                 <Text style={{ marginLeft: 10, fontWeight: "600" }}>
                  Supported Banks
                 </Text>
