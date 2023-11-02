@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Pressable, ScrollView, ImageBackground, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-const SavingsAccount = ({ navigation }) => {
- 
+const SavingsAccount = () => {
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={{ paddingTop: Platform.OS === 'android' ? 40 : 0, justifyContent: "center", alignItems: "center" }}>
