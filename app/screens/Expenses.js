@@ -98,7 +98,7 @@ const Expenses = () => {
           style={{
             height: "51%",
             width: "100%",
-            backgroundColor: "#b7d9e2",
+            backgroundColor: "#2b6747",
             borderBottomLeftRadius: 40,
             borderBottomRightRadius: 40,
             position: "relative",
@@ -161,7 +161,7 @@ const Expenses = () => {
                 alignItems: "center",
               }}
             >
-              <EvilIcons name="location" size={30} color="#f0fcfe" onPress={handlesubmit}/>
+              <EvilIcons name="location" size={30} color="#2b6747" onPress={handlesubmit}/>
             </View>
           </View>
           <View
@@ -176,9 +176,9 @@ const Expenses = () => {
               rotation={0}
               width={15}
               fill={37}
-              tintColor="#5c93aa"
+              tintColor="#2b6747"
               onAnimationComplete={() => console.log("onAnimationComplete")}
-              backgroundColor="#f0fcfe"
+              backgroundColor="#2b6747"
             />
           </View>
           <Text
@@ -210,7 +210,7 @@ const Expenses = () => {
             <View
               style={{
                 height: 110,
-                backgroundColor: "lightblue",
+                backgroundColor: "#2b6747",
                 borderRadius: 15,
                 flexDirection: "column",
                 justifyContent: "space-between",

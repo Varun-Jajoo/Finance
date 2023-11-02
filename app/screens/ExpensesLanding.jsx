@@ -72,7 +72,7 @@ const Expenses = () => {
           style={{
             height: "51%",
             width: "100%",
-            backgroundColor: "#b7d9e2",
+            backgroundColor: "#2b6747",
             borderBottomLeftRadius: 40,
             borderBottomRightRadius: 40,
             position: "relative",
@@ -104,7 +104,7 @@ const Expenses = () => {
                   styles.tabButton,
                   {
                     borderBottomWidth: selectedTab ? 2 : 0,
-                    borderBottomColor: "#5c93aa",
+                    borderBottomColor: "#2b6747",
                     height: 22,
                   },
                 ]}
@@ -117,7 +117,7 @@ const Expenses = () => {
                   styles.tabButton,
                   {
                     borderBottomWidth: !selectedTab ? 2 : 0,
-                    borderBottomColor: "#5c93aa",
+                    borderBottomColor: "#2b6747",
                     height: 22,
                   },
                 ]}
@@ -128,14 +128,14 @@ const Expenses = () => {
             <View
               style={{
                 borderRadius: 99,
-                backgroundColor: "#5c93aa",
+                backgroundColor: "white",
                 width: 40,
                 height: 40,
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Octicons name="graph" size={22} color="#f0fcfe" />
+              <Octicons name="graph" size={22} color="#2b6747" />
             </View>
           </View>
           <View
@@ -150,7 +150,7 @@ const Expenses = () => {
               rotation={0}
               width={15}
               fill={(userData.level * 100) / 5}
-              tintColor="#5c93aa"
+              tintColor="#F1C93B"
               onAnimationComplete={() => console.log("onAnimationComplete")}
               backgroundColor="#f0fcfe"
             />
@@ -159,7 +159,7 @@ const Expenses = () => {
             style={{
               textAlign: "center",
               paddingTop: 20,
-              color: "#5c93aa",
+              color: "#F1C93B",
               fontSize: 20,
               fontWeight: 700,
             }}
@@ -184,7 +184,7 @@ const Expenses = () => {
             <View
               style={{
                 height: 110,
-                backgroundColor: "lightblue",
+                backgroundColor: "#98bc62",
                 borderRadius: 15,
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -238,7 +238,7 @@ const Expenses = () => {
             <View
               style={{
                 height: 110,
-                backgroundColor: "pink",
+                backgroundColor: "#F1C93B",
                 borderRadius: 15,
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -300,7 +300,7 @@ const Expenses = () => {
             paddingVertical: 5,
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: 600 }}>
+          <Text style={{ fontSize: 20, fontWeight: 600 ,color:"#2b6747"}}>
             Recommendations for you
           </Text>
 
@@ -308,7 +308,7 @@ const Expenses = () => {
             style={{
               paddingHorizontal: 10,
               paddingVertical: 10,
-              backgroundColor: "black",
+              backgroundColor: "#2b6747",
               justifyContent: "center",
               alignItems: "center",
               borderRadius: 99,
@@ -316,11 +316,11 @@ const Expenses = () => {
             }}
             onPress={handleQuestionSubmit}
           >
-            <Text style={{ color: "white" }}>Recommend</Text>
+            <Text style={{ color: "white",backgroundColor:"#2b6747" }}>Recommend</Text>
           </Pressable>
 
-          <View style={{ padding: 10 }}>
-            <Text>{answer ? answer.trim() : "Press The Button"}</Text>
+          <View style={{ padding: 10}}>
+            <Text style={{color:"#2b6747" }}>{answer ? answer.trim() : "Press The Button"}</Text>
           </View>
         </View>
         <Text
@@ -330,7 +330,7 @@ const Expenses = () => {
             top: Platform.OS === "android" ? 127 : 105,
             right: "45%",
             fontSize: 80,
-            color: "#5c93aa",
+            color: "#F1C93B",
             fontWeight: "bold",
           }}
         >
