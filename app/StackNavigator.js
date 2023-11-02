@@ -30,6 +30,7 @@ import Document from "./screens/Document";
 import Stock from "./screens/Stock";
 import ZeroBalanceAccount from "./screens/ZeroBalance";
 import SavingsAccount from "./screens/Savings";
+import BankPage from "./screens/BankPage";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -325,6 +326,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Stock"
           component={Stock}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BankPage"
+          component={BankPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
