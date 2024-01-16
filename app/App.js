@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 import StackNavigator from "./StackNavigator";
 import { useFonts } from "expo-font";
 import { ModalPortal } from "react-native-modals";
-import { AntDesign } from "@expo/vector-icons";
 
 export const UserContext = createContext();
 
